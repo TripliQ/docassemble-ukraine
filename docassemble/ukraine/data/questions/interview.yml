@@ -1,0 +1,109 @@
+### Translation Files ###
+# translations:
+#   - interview_en.xlsx
+---
+### TripliQ Base Files ###
+include:
+  - docassemble.tripliqbase:data/questions/intro.yml
+  - docassemble.tripliqbase:data/questions/disclaimer.yml
+  - questions.yml
+  - document.yml
+#   - metadata.yml
+### intro.yml ###
+template: intro_question
+content: |
+  Ukraine Immigration Tool
+---
+### intro.yml ##
+template: intro_subquestion
+content: |
+  We are here to help you and guide you through German beraucratic processes.
+---
+### final_document.yml ###
+template: final_document_question
+content: |
+  Your Document was created!
+---
+### final_document.yml ###
+template: final_document_subquestion
+content: |
+  Print and submit the document.
+---
+### final_document.yml ###
+template: final_document_partner
+content: |
+---
+### INTERVIEW PARAMERTERS ###
+code: |
+  # intro.yml
+  intro_screen_image_name = 'undraw_pending_approval_xuu9.svg'
+  partner_image_name = None
+---
+### INTERVIEW FEATURES ###
+features:
+  navigation: True
+  progress bar: True
+  progress bar method: default
+---
+### DE INTERVIEW SECTIONS ###
+# language: de
+# sections:
+#   - start: Start
+#   - disclaimer: TripliQ Hinweis
+#   - moving_out: Auszugsdatum
+#   - flat_past: Bisherige Wohnung
+#     subsections:
+#       - flat_past_address: Adresse
+#       - flat_past_type: Art
+#   - flat_future: Zukünftige Wohnung
+#     subsections:
+#       - flat_future_address: Adresse
+#       - flat_future_type: Art
+#   - person: Personen
+#     subsections:
+#       - person_number: Anzahl
+#       - person_details: Details
+#   - additional_flats: Weitere Wohnungen
+#     subsections:
+#       - additional_flats_number: Anzahl
+#       - additional_flats_details: Details
+#   - feedback: Feedback (optional)
+#   - download: Download
+---
+### EN INTERVIEW SECTIONS ###
+# language: en
+# sections:
+#   - start: Start
+#   - disclaimer: TripliQ Disclaimer
+#   - moving_out: Moving Out Date
+#   - flat_past: Current Flat
+#     subsections:
+#       - flat_past_address: Address
+#       - flat_past_type: Type
+#   - flat_future: Future Flat
+#     subsections:
+#       - flat_future_address: Address
+#       - flat_future_type: Type
+#   - person: People
+#     subsections:
+#       - person_number: Number
+#       - person_details: Details
+#   - additional_flats: Additional Flats
+#     subsections:
+#       - additional_flats_number: Number
+#       - additional_flats_details: Details
+#   - feedback: Feedback (optional)
+#   - download: Download
+---
+### INITIAL CODE ###
+initial: True
+code: |
+  set_language(user_language)
+---
+### INTERVIEW LOGIC ###
+mandatory: True
+code: |
+  intro_screen
+  disclaimer_screen
+  final_document
+  final_screen

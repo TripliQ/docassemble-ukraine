@@ -1,0 +1,136 @@
+objects:
+  - applicant: Individual
+  - life_partner: Individual
+---
+segment: 
+  id: Language Chosen
+question: |
+  Language settings
+subquestion: |
+  Please choose your language
+  (Будь ласка, виберіть свою мову).
+field: user_language
+choices:
+  - English/англійська: en
+  - Ukranian/Українка: en
+default: en
+---
+# TODO: Think about splitting into everal part
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Person Details
+question: |
+  Pleae complete the details of the applicant.
+fields:
+  - First Name / Birthname: applicant.name.first
+    default: Max Otto
+  - Last Name: applicant.name.last
+    default: Mustermann
+  - Date of birth: applicant.birthdate
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Birth Place: applicant.place_of_birth
+    default: Musterhausen
+  - Birth State: applicant.country_of_birth
+    code: |
+      countries_list()
+    default: Ukraine
+  - Gender: applicant.gender
+    choices:
+      - Male: male
+      - Female: female
+    default: Male
+  - Eye Color: applicant.eye_color
+    default: Brown
+  - Height: applicant.height
+    datatype: integer
+    default: 170
+  - Nationality: applicant.nationality
+    code: |
+      countries_list()
+    default: Ukraine
+  - Previous nationality: applicant.previous_nationality
+    code: |
+      countries_list()
+    default: Ukraine
+  - Ethnicity: applicant.ethnicity
+    code: |
+      countries_list()
+    default: Ukraine
+  - Marital status: applicant.marital_status
+    choices:
+      - Single: single
+      - Married: married
+      - Living seperately: living_seperately
+      - Living in registered partnership: living_in_registered_partnership
+      - Divorced: divorced
+      - Widowed: widowed
+    default: single
+  - Marital status since: applicant.marital_status_since
+    datatype: integer
+    default: 1970
+  - Phone: applicant.phone
+    default: +380 XXX XXX XXX
+  - Email: applicant.email
+    default: example@mail.com
+  # TODO: Not understanding this part
+  - Own passport / ID card: applicant.own_passport_id
+    datatype: yesnoradio
+  # TODO: Add missing eingetragen bei Vater / Mutter
+  - Type of ID: applicant.id_type
+    default: Passsport
+  - ID Number: applicant.id_number
+    default: ABCDEFG12345
+  - Issued on: applicant.id_issued_on
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Valid until: applicant.id_valid_until
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Issuing State: applicant.issuing_state
+    code: |
+      countries_list()
+    default: Ukraine
+  - Right of return to state : applicant.right_return_state
+    code: |
+      countries_list()
+    default: Ukraine
+---
+# TODO: Think about splitting into everal part
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Life Partner Details
+fields:
+  - Spouse / registered partner according to LPartG: life_partner
+    datatype: yesnoradio
+  - First Name / Birthname: life_partner.name.first
+    default: Max Otto
+  - Last Name: life_partner.name.last
+    default: Mustermann
+  - Date of birth: life_partner.birthdate
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Gender: life_partner.gender
+    choices:
+      - Male: male
+      - Female: female
+  - Reidence (City): life_partner.residence_city
+    default: Musterhausen
+  - Reidence (City): life_partner.residence_city
+    code: |
+      countries_list()
+    default: Ukraine
+  # - Religion: person[i].religion
+  #   required: False
+  #   hint: Evangelisch
+  # - note: |
+  #     Wenn du einen **Safari** Browser verwendest, gebe das Datum im folgenden Format ein: **JJJJ-MM-TT** (Jahr-Monat-Tag)
+
+  # - Nationalität: person[i].nationality
+  #   hint: Deustsch
+  # - Künstlername: person[i].kuenstlername
+  #   required: False
