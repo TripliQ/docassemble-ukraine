@@ -1,6 +1,7 @@
 objects:
   - applicant: Individual
   - life_partner: Individual
+  - children: DAList.using(object_type=Individual, ask_number=True)
 ---
 segment: 
   id: Language Chosen
@@ -24,9 +25,9 @@ segment:
 question: |
   Pleae complete the details of the applicant.
 fields:
-  - First Name / Birthname: applicant.name.first
+  - First Name: applicant.name.first
     default: Max Otto
-  - Last Name: applicant.name.last
+  - Last Name / Birthname: applicant.name.last
     default: Mustermann
   - Date of birth: applicant.birthdate
     datatype: date
@@ -113,10 +114,10 @@ question: |
 fields:
   - Spouse / registered partner according to LPartG: life_partner_yes_no
     datatype: yesnoradio
-  - First Name / Birthname: life_partner.name.first
+  - First Name: life_partner.name.first
     default: Max Otto
     show if: life_partner_yes_no
-  - Last Name: life_partner.name.last
+  - Last Name / Birthname: life_partner.name.last
     default: Mustermann
     show if: life_partner_yes_no
   - Date of birth: life_partner.birthdate
@@ -137,6 +138,52 @@ fields:
       countries_list()
     default: Ukraine
     show if: life_partner_yes_no
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Number Children
+question: |
+  How many children came with you to Germany?
+fields:
+  - Number: children.target_number
+    datatype: integer
+    max: 4
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Children Details
+question: |
+  Please complete the info about your ${ ordinal(i) } child
+fields:
+  - First Name: children[i].name.first
+    default: Max Otto
+  - Last Name: children[i].name.last
+    default: Mustermann
+  - Date of birth: children[i].birthdate
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Place of birth: children[i].place_of_birth
+    default: Kyiv
+  # TODO: Should be multiple nationalities
+  - Nationality: children[i].nationality
+    code: |
+      countries_list()
+    default: Ukraine
+  - Gender: children[i].gender
+    choices:
+      - Male: male
+      - Female: female
+    default: male
+  - Reidence (City): children[i].residence_city
+    default: Musterhausen
+  - Reidence (State): children[i].residence_state
+    code: |
+      countries_list()
+    default: Ukraine
   # - Religion: person[i].religion
   #   required: False
   #   hint: Evangelisch

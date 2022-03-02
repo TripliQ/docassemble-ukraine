@@ -108,6 +108,144 @@ attachment:
         % if life_partner_yes_no:
         ${ life_partner.residence_city + ', ' + life_partner.residence_state }
         % endif
+
+    - TEXTAREA.p1.x66.y40: |
+        % if len(children) > 0:
+        ${ children[0].name.first }
+        % endif
+    - TEXTAREA.p1.x66.y32: |
+        % if len(children) > 0:
+        ${ children[0].name.last }
+        % endif
+    - CHECKBOX.p1.x66.y50: |
+        % if len(children) > 0:
+        ${ yesno(children[0].gender == 'male') }
+        % endif
+    - CHECKBOX.p1.x82.y50: |
+        % if len(children) > 0:
+        ${ yesno(children[0].gender == 'female') }
+        % endif
+    - TEXTFIELD.p1.x66.y59: |
+        % if len(children) > 0:
+        ${ format_date(children[0].birthdate, format='dd.MM.yyyy') }
+        % endif
+    - TEXTAREA.p1.x66.y64: |
+        % if len(children) > 0:
+        ${ children[0].place_of_birth }
+        % endif
+    - TEXTAREA.p1.x66.y72: |
+        % if len(children) > 0:
+        ${ children[0].nationality }
+        % endif
+    - TEXTAREA.p1.x66.y80: |
+        % if len(children) > 0:
+        ${ children[0].residence_city + ', ' + children[0].residence_state }
+        % endif
+
+    - TEXTAREA.p1.x100.y40: |
+        % if len(children) > 1:
+        ${ children[1].name.first }
+        % endif
+    - TEXTAREA.p1.x100.y32: |
+        % if len(children) > 1:
+        ${ children[1].name.last }
+        % endif
+    - CHECKBOX.p1.x100.y50: |
+        % if len(children) > 1:
+        ${ yesno(children[1].gender == 'male') }
+        % endif
+    - CHECKBOX.p1.x116.y50: |
+        % if len(children) > 1:
+        ${ yesno(children[1].gender == 'female') }
+        % endif
+    - TEXTFIELD.p1.x100.y59: |
+        % if len(children) > 1:
+        ${ format_date(children[1].birthdate, format='dd.MM.yyyy') }
+        % endif
+    - TEXTAREA.p1.x100.y64: |
+        % if len(children) > 1:
+        ${ children[1].place_of_birth }
+        % endif
+    - TEXTAREA.p1.x100.y72: |
+        % if len(children) > 1:
+        ${ children[1].nationality }
+        % endif
+    - TEXTAREA.p1.x100.y80: |
+        % if len(children) > 1:
+        ${ children[1].residence_city + ', ' + children[1].residence_state }
+        % endif
+
+
+    - TEXTAREA.p1.x134.y40: |
+        % if len(children) > 2:
+        ${ children[2].name.first }
+        % endif
+    - TEXTAREA.p1.x134.y32: |
+        % if len(children) > 2:
+        ${ children[2].name.last }
+        % endif
+    - CHECKBOX.p1.x134.y50: |
+        % if len(children) > 2:
+        ${ yesno(children[2].gender == 'male') }
+        % endif
+    - CHECKBOX.p1.x150.y50: |
+        % if len(children) > 2:
+        ${ yesno(children[2].gender == 'female') }
+        % endif
+    - TEXTFIELD.p1.x134.y59: |
+        % if len(children) > 2:
+        ${ format_date(children[2].birthdate, format='dd.MM.yyyy') }
+        % endif
+    - TEXTAREA.p1.x134.y64: |
+        % if len(children) > 2:
+        ${ children[2].place_of_birth }
+        % endif
+    - TEXTAREA.p1.x134.y72: |
+        % if len(children) > 2:
+        ${ children[2].nationality }
+        % endif
+    - TEXTAREA.p1.x134.y80: |
+        % if len(children) > 2:
+        ${ children[2].residence_city + ', ' + children[2].residence_state }
+        % endif
+
+
+    - TEXTAREA.p1.x168.y40: |
+        % if len(children) > 3:
+        ${ children[3].name.first }
+        % endif
+    - TEXTAREA.p1.x168.y32: |
+        % if len(children) > 3:
+        ${ children[3].name.last }
+        % endif
+    - CHECKBOX.p1.x168.y50: |
+        % if len(children) > 3:
+        ${ yesno(children[3].gender == 'male') }
+        % endif
+    - CHECKBOX.p1.x184.y50: |
+        % if len(children) > 3:
+        ${ yesno(children[3].gender == 'female') }
+        % endif
+    - TEXTFIELD.p1.x168.y59: |
+        % if len(children) > 3:
+        ${ format_date(children[3].birthdate, format='dd.MM.yyyy') }
+        % endif
+    - TEXTAREA.p1.x168.y64: |
+        % if len(children) > 3:
+        ${ children[3].place_of_birth }
+        % endif
+    - TEXTAREA.p1.x168.y72: |
+        % if len(children) > 3:
+        ${ children[3].nationality }
+        % endif
+    - TEXTAREA.p1.x168.y80: |
+        % if len(children) > 3:
+        ${ children[3].residence_city + ', ' + children[3].residence_state }
+        % endif
+
+
+
+
 #     - Straße Hausnummer Zusätze bisherige Wohnung: |
 #         ${ bisherige_adresse.address + ' ' + bisherige_adresse.unit }
 #     - bisherige Wohnung war alleinige Wohnung: |
