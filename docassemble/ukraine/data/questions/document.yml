@@ -33,11 +33,11 @@ attachment:
     - TEXTFIELD.p0.x78.y115: |
         ${ applicant.name.last }
     - TEXTFIELD.p0.x78.y123: |
-        ${ applicant.birthdate }
+        ${ format_date(applicant.birthdate, format='dd.MM.yyyy') }
     - TEXTFIELD.p0.x124.y123: |
         ${ applicant.place_of_birth }
     - TEXTFIELD.p0.x78.y131: |
-        ${ applicant.place_of_birth }
+        ${ applicant.country_of_birth }
     - CHECKBOX.p0.x78.y138: |
         ${ yesno(applicant.gender == 'male') }
     - CHECKBOX.p0.x98.y138: |
@@ -75,17 +75,39 @@ attachment:
     - TEXTFIELD.p0.x78.y201: |
         ${ applicant.id_number }
     - TEXTFIELD.p0.x154.y209: |
-        ${ applicant.id_issued_on }
-    - TEXTFIELD.p0.x154.y217: |
-        ${ applicant.id_valid_until }
+        ${ format_date(applicant.id_issued_on, format='dd.MM.yyyy') }
+    - TEXTFIELD.p0.x154.y201: |
+        ${ format_date(applicant.id_valid_until, format='dd.MM.yyyy') }
     - TEXTFIELD.p0.x78.y209: |
         ${ applicant.issuing_state }
     - TEXTFIELD.p0.x78.y217: |
         ${ applicant.right_return_state }
-
-
-
-
+    - TEXTFIELD.p0.x154.y217: |
+        ${ format_date(applicant.id_valid_until, format='dd.MM.yyyy') }
+    - TEXTFIELD.p0.x78.y233: |
+        % if life_partner_yes_no:
+        ${ life_partner.name.last }
+        % endif
+    - TEXTFIELD.p0.x78.y241: |
+        % if life_partner_yes_no:
+        ${ life_partner.name.first }
+        % endif
+    - TEXTFIELD.p0.x78.y249: |
+        % if life_partner_yes_no:
+        ${ format_date(life_partner.birthdate, format='dd.MM.yyyy') }
+        % endif
+    - CHECKBOX.p0.x78.y256: |
+        % if life_partner_yes_no:
+        ${ yesno(life_partner.gender == 'male') }
+        % endif
+    - CHECKBOX.p0.x98.y256: |
+        % if life_partner_yes_no:
+        ${ yesno(life_partner.gender == 'female') }
+        % endif
+    - TEXTFIELD.p0.x78.y265: |
+        % if life_partner_yes_no:
+        ${ life_partner.residence_city + ', ' + life_partner.residence_state }
+        % endif
 #     - Straße Hausnummer Zusätze bisherige Wohnung: |
 #         ${ bisherige_adresse.address + ' ' + bisherige_adresse.unit }
 #     - bisherige Wohnung war alleinige Wohnung: |

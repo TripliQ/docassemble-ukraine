@@ -78,6 +78,7 @@ fields:
   # TODO: Not understanding this part
   - Own passport / ID card: applicant.own_passport_id
     datatype: yesnoradio
+    default: true
   # TODO: Add missing eingetragen bei Vater / Mutter
   - Type of ID: applicant.id_type
     default: Passsport
@@ -97,6 +98,9 @@ fields:
     code: |
       countries_list()
     default: Ukraine
+  - Right of return to state valid until: applicant.right_return_state_until
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
 ---
 # TODO: Think about splitting into everal part
 segment:
@@ -104,26 +108,35 @@ segment:
   arguments:
     count: True
     question: Life Partner Details
+question: |
+  Pleae complete the details about your Spouse / registered life partner according to LPartG.
 fields:
-  - Spouse / registered partner according to LPartG: life_partner
+  - Spouse / registered partner according to LPartG: life_partner_yes_no
     datatype: yesnoradio
   - First Name / Birthname: life_partner.name.first
     default: Max Otto
+    show if: life_partner_yes_no
   - Last Name: life_partner.name.last
     default: Mustermann
+    show if: life_partner_yes_no
   - Date of birth: life_partner.birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
+    show if: life_partner_yes_no
   - Gender: life_partner.gender
     choices:
       - Male: male
       - Female: female
+    default: female
+    show if: life_partner_yes_no
   - Reidence (City): life_partner.residence_city
     default: Musterhausen
-  - Reidence (City): life_partner.residence_city
+    show if: life_partner_yes_no
+  - Reidence (State): life_partner.residence_state
     code: |
       countries_list()
     default: Ukraine
+    show if: life_partner_yes_no
   # - Religion: person[i].religion
   #   required: False
   #   hint: Evangelisch
