@@ -3,7 +3,7 @@ objects:
   - life_partner: Individual
   - children: DAList.using(object_type=Individual, ask_number=True)
 ---
-segment: 
+segment:
   id: Language Chosen
 question: |
   Language settings
@@ -95,7 +95,7 @@ fields:
     code: |
       countries_list()
     default: Ukraine
-  - Right of return to state : applicant.right_return_state
+  - Right of return to state: applicant.right_return_state
     code: |
       countries_list()
     default: Ukraine
@@ -114,6 +114,7 @@ question: |
 fields:
   - Spouse / registered partner according to LPartG: life_partner_yes_no
     datatype: yesnoradio
+    default: false
   - First Name: life_partner.name.first
     default: Max Otto
     show if: life_partner_yes_no
@@ -150,6 +151,7 @@ fields:
   - Number: children.target_number
     datatype: integer
     max: 4
+    default: 0
 ---
 segment:
   id: Question Asked
@@ -184,13 +186,50 @@ fields:
     code: |
       countries_list()
     default: Ukraine
-  # - Religion: person[i].religion
-  #   required: False
-  #   hint: Evangelisch
-  # - note: |
-  #     Wenn du einen **Safari** Browser verwendest, gebe das Datum im folgenden Format ein: **JJJJ-MM-TT** (Jahr-Monat-Tag)
-
-  # - Nationalität: person[i].nationality
-  #   hint: Deustsch
-  # - Künstlername: person[i].kuenstlername
-  #   required: False
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Arrival
+question: |
+  Please complete the following questions about your arrival
+fields:
+  - Entry last on: entry_date
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Entered with a visa: entry_visa_yes_no
+    datatype: yesnoradio
+  - Entry: entry_visa_type
+    choices:
+      - with Shengen visa: shengen_visa
+      - with national German vis: german_visa
+    default: shengen_visa
+    show if: entry_visa_yes_no
+  - Visa number: visa_number
+    default: XXX-XXX-XXX
+    show if: entry_visa_yes_no
+  - Visa category: entry_visa_category
+    choices:
+      - Visa for flight transit: 'Kategorie A'
+      - Visa for transit: 'Kategorie B'
+      - Stay up to 90 days: 'Kategorie C'
+      - National Vida: 'Kategorie D'
+    default: 'Kategorie A'
+    show if: entry_visa_yes_no
+    # TODO: Should this be a country or free text?
+  - Visa issued by: visa_issuer
+    default: TBD
+    show if: entry_visa_yes_no
+  - Visa issued date: visa_issued_date
+    datatype: date
+    show if: entry_visa_yes_no
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Visa valid from: visa_valid_from
+    datatype: date
+    show if: entry_visa_yes_no
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Visa valid until: visa_valid_until
+    datatype: date
+    show if: entry_visa_yes_no
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
