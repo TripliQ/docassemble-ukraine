@@ -239,7 +239,7 @@ fields:
     datatype: date
     show if: entry_visa_yes_no
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Beschränkung: visa_spatial_restriction
+  - Spatial restriction: visa_spatial_restriction
     choices:
       - Without spatial restriction: ohne räumliche Beschränkung
       - With spatial restriction: beschränkt auf
