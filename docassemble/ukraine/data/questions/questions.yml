@@ -16,7 +16,7 @@ choices:
   - Ukranian/Українка: en
 default: en
 ---
-# TODO: Think about splitting into everal part
+# TODO: Think about splitting into several parts
 segment:
   id: Question Asked
   arguments:
