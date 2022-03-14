@@ -40,10 +40,15 @@ fields:
     default: Ukraine
   - Gender: applicant.gender
     choices:
-      - Male: male
-      - Female: female
+      - Male: Männlich
+      - Female: Weiblich
     default: Male
   - Eye Color: applicant.eye_color
+    choices:
+      - Blue: Blau
+      - Green: Grün
+      - Gray: Grau
+      - Brown: Braun
     default: Brown
   - Height: applicant.height
     datatype: integer
@@ -62,13 +67,13 @@ fields:
     default: Ukraine
   - Marital status: applicant.marital_status
     choices:
-      - Single: single
-      - Married: married
-      - Living seperately: living_seperately
-      - Living in registered partnership: living_in_registered_partnership
-      - Divorced: divorced
-      - Widowed: widowed
-    default: single
+      - Single: ledig
+      - Married: verheiratet
+      - Living seperately: getreent lebend
+      - Living in registered partnership: in eingetragener Lebenspartnerschaft lebend
+      - Divorced: geschieden
+      - Widowed: verwitwet
+    default: ledig
   - Marital status since: applicant.marital_status_since
     datatype: integer
     default: 1970
@@ -76,11 +81,12 @@ fields:
     default: +380 XXX XXX XXX
   - Email: applicant.email
     default: example@mail.com
-  # TODO: Not understanding this part
-  - Own passport / ID card: applicant.own_passport_id
-    datatype: yesnoradio
-    default: true
-  # TODO: Add missing eingetragen bei Vater / Mutter
+  - Passport / ID card: applicant.passport_id
+    choices:
+      - Own Passport / ID card: eigener Pass/Ausweis
+      - Registered with Father: eingetragen bei Vater
+      - Registered with Mother: eingetragen bei Vater
+    default: Own Passport / ID card
   - Type of ID: applicant.id_type
     default: Passsport
   - ID Number: applicant.id_number
@@ -103,7 +109,7 @@ fields:
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
 ---
-# TODO: Think about splitting into everal part
+# TODO: Think about splitting into several parts
 segment:
   id: Question Asked
   arguments:
@@ -127,9 +133,9 @@ fields:
     show if: life_partner_yes_no
   - Gender: life_partner.gender
     choices:
-      - Male: male
-      - Female: female
-    default: female
+      - Male: Männlich
+      - Female: Weiblich
+    default: Female
     show if: life_partner_yes_no
   - Reidence (City): life_partner.residence_city
     default: Musterhausen
@@ -177,9 +183,9 @@ fields:
     default: Ukraine
   - Gender: children[i].gender
     choices:
-      - Male: male
-      - Female: female
-    default: male
+      - Male: Männlich
+      - Female: Weiblich
+    default: Male
   - Reidence (City): children[i].residence_city
     default: Musterhausen
   - Reidence (State): children[i].residence_state
@@ -202,20 +208,20 @@ fields:
     datatype: yesnoradio
   - Entry: entry_visa_type
     choices:
-      - with Shengen visa: shengen_visa
-      - with national German vis: german_visa
-    default: shengen_visa
+      - with Shengen visa: mit Schengener Visum
+      - with national German visa: mit nationalen Deutschen Visum
+    default: with national German visa
     show if: entry_visa_yes_no
   - Visa number: visa_number
     default: XXX-XXX-XXX
     show if: entry_visa_yes_no
   - Visa category: entry_visa_category
     choices:
-      - Visa for flight transit: 'Kategorie A'
-      - Visa for transit: 'Kategorie B'
-      - Stay up to 90 days: 'Kategorie C'
-      - National Vida: 'Kategorie D'
-    default: 'Kategorie A'
+      - Visa for flight transit: 'Visum für Flughafentransit (Kategorie A)'
+      - Visa for transit: 'Vissum für Durchreise (Kategorie B)'
+      - Stay up to 90 days: 'Aufenthalt von bis zu 90 Tagen (Kategorie C)'
+      - National Vida: 'Nationales Visum (Kategorie D)'
+    default: Stay up to 90 days
     show if: entry_visa_yes_no
     # TODO: Should this be a country or free text?
   - Visa issued by: visa_issuer
@@ -233,3 +239,32 @@ fields:
     datatype: date
     show if: entry_visa_yes_no
     default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Beschränkung: visa_spatial_restriction
+    choices:
+      - Without spatial restriction: ohne räumliche Beschränkung
+      - With spatial restriction: beschränkt auf
+    show if: entry_visa_yes_no
+    default: Without spatial restriction
+  - Spatial restriction to: visa_spatial_restriction_details
+    show if:
+      variable: visa_spatial_restriction
+      is: beschränkt auf
+  # TODO: Always show? Free text?
+  - Requirement: visa_requirement
+    show if: entry_visa_yes_no
+    default: TBD
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Arrival
+question: |
+  Please complete the following questions about your stay in Germany
+fields:
+  - Current Residence City: residence_current_city
+    default: Berlin
+  - Purpose of the residence: residence_purpose
+    default: Flucht vor Krieg
+  - Intended duration of stay: residence_duration
+    default: Ende des Kriegs

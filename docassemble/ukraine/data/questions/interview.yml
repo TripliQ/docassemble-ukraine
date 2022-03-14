@@ -103,7 +103,8 @@ code: |
 ### INTERVIEW LOGIC ###
 mandatory: True
 code: |
-  intro_screen
-  disclaimer_screen
-  final_document
   final_screen
+
+
+# intro_screen
+# final_document
