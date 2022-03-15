@@ -7,7 +7,7 @@ event: final_screen
 question: |
   ${ final_document_question }
 subquestion: |
-  ${ static_image('undraw_done_a34v.svg') }
+  ${ static_image('undraw_done_a34v.svg', width='70%')  }
   <br>
   <br>
   ${ final_document_subquestion }

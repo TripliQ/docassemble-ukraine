@@ -12,22 +12,28 @@ include:
 ### intro.yml ###
 template: intro_question
 content: |
-  Ukraine Immigration Tool
+  Application for residence title according to § 24 AufenthaltsG
 ---
 ### intro.yml ##
 template: intro_subquestion
 content: |
-  We are here to help you and guide you through German beraucratic processes.
+  Easily complete your application with an online interview in a few simple steps.
 ---
 ### final_document.yml ###
 template: final_document_question
 content: |
-  Application for residence title according to § 24 AufenthaltsG has been created!
+  Your application for residence title according to § 24 AufenthaltsG has been created!
 ---
 ### final_document.yml ###
 template: final_document_subquestion
 content: |
-  Print and submit the document.
+  #### Congrats on completing the application 🎉
+
+  1. Download the application below as **PDF**
+  2. Print the application
+  3. <span style="color:red">**Sign the application**</span> at the bottom where it says **Unterschrift**
+  4. Add the copied IDs / passports
+  5. Send it to the correct address from the previous step
 ---
 ### final_document.yml ###
 template: final_document_partner
@@ -36,7 +42,7 @@ content: |
 ### INTERVIEW PARAMERTERS ###
 code: |
   # intro.yml
-  intro_screen_image_name = 'undraw_pending_approval_xuu9.svg'
+  intro_screen_image_name = 'undraw_onboarding_re_6osc.svg'
   partner_image_name = None
 ---
 ### INTERVIEW FEATURES ###
@@ -71,29 +77,19 @@ features:
 #   - download: Download
 ---
 ### EN INTERVIEW SECTIONS ###
-# language: en
-# sections:
-#   - start: Start
-#   - disclaimer: TripliQ Disclaimer
-#   - moving_out: Moving Out Date
-#   - flat_past: Current Flat
-#     subsections:
-#       - flat_past_address: Address
-#       - flat_past_type: Type
-#   - flat_future: Future Flat
-#     subsections:
-#       - flat_future_address: Address
-#       - flat_future_type: Type
-#   - person: People
-#     subsections:
-#       - person_number: Number
-#       - person_details: Details
-#   - additional_flats: Additional Flats
-#     subsections:
-#       - additional_flats_number: Number
-#       - additional_flats_details: Details
-#   - feedback: Feedback (optional)
-#   - download: Download
+language: en
+sections:
+  - start: Start
+  - section_applicant: Applicant Information
+    subsections:
+      - section_personal_info: Personal Information
+      - secction_id_details: ID / Passport Details
+  - section_life_partner: Life Partner
+  - section_children: Children
+  - section_arrival: Arrival
+  - section_stay_germany: Stay in Germany
+  - section_checklist: Final Checklist
+  - download: Download
 ---
 ### INITIAL CODE ###
 initial: True
@@ -103,8 +99,10 @@ code: |
 ### INTERVIEW LOGIC ###
 mandatory: True
 code: |
+  intro_screen
+  final_document
+  copy_ids
+  right_address
   final_screen
 
 
-# intro_screen
-# final_document

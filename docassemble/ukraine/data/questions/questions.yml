@@ -80,6 +80,8 @@ fields:
     default: +380 XXX XXX XXX
   - Email: applicant.email
     default: example@mail.com
+progress: 10
+section: section_personal_info
 ---
 segment:
   id: Question Asked
@@ -87,7 +89,7 @@ segment:
     count: True
     question: Person ID Details
 question: |
-  Pleae complete the details about your passport or ID cards.
+  Pleae complete the details about your passport or ID card
 # TODO: What to do if no ID card?
 fields:
   - Passport / ID card: applicant.passport_id
@@ -117,6 +119,8 @@ fields:
   - Right of return to state valid until: applicant.right_return_state_until
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
+progress: 20
+section: secction_id_details
 ---
 segment:
   id: Question Asked
@@ -153,6 +157,8 @@ fields:
       countries_list()
     default: Ukraine
     show if: life_partner_yes_no
+progress: 30
+section: section_life_partner
 ---
 segment:
   id: Question Asked
@@ -166,6 +172,8 @@ fields:
     datatype: integer
     max: 4
     default: 0
+progress: 40
+section: section_children
 ---
 segment:
   id: Question Asked
@@ -200,6 +208,8 @@ fields:
     code: |
       countries_list()
     default: Ukraine
+progress: 50
+section: section_children
 ---
 segment:
   id: Question Asked
@@ -260,12 +270,14 @@ fields:
   # - Requirement: visa_requirement
   #   show if: entry_visa_yes_no
   #   default: TBD
+progress: 60
+section: section_arrival
 ---
 segment:
   id: Question Asked
   arguments:
     count: True
-    question: Arrival
+    question: Residence
 question: |
   Please complete the following questions about your stay in Germany
 fields:
@@ -278,3 +290,29 @@ fields:
   - Intended duration of stay: residence_duration
     input type: area
     default: Ende des Kriegs
+progress: 70
+section: section_stay_germany
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Address
+question: |
+  Almost done, complete the following steps before sending
+subquestion: |
+  Please watch the video below and follow the instructions to find the **right address** to send your application
+video: |
+  [YOUTUBE YkgkThdzX-8]
+fields:
+  - Noted right address from the video above as address for application: right_address
+    datatype: yesnowide
+  - Copied all IDs / passports to add them to the application after download: copy_ids
+    datatype: yesnowide
+validation code: |
+  if not copy_ids:
+    validation_error("Please make sure you took a copy of all mentioned IDs / passport to add them to the application.")
+  if not right_address:
+    validation_error("Please follow the instructions in the video and note down the correct address.")
+progress: 70
+section: section_checklist
