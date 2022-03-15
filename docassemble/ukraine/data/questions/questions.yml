@@ -16,14 +16,13 @@ choices:
   - Ukranian/Українка: en
 default: en
 ---
-# TODO: Think about splitting into several parts
-segment:
+ssegment:
   id: Question Asked
   arguments:
     count: True
     question: Person Details
 question: |
-  Pleae complete the details of the applicant.
+  Pleae complete the details about yourself.
 fields:
   - First Name: applicant.name.first
     default: Max Otto
@@ -81,6 +80,16 @@ fields:
     default: +380 XXX XXX XXX
   - Email: applicant.email
     default: example@mail.com
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Person ID Details
+question: |
+  Pleae complete the details about your passport or ID cards.
+# TODO: What to do if no ID card?
+fields:
   - Passport / ID card: applicant.passport_id
     choices:
       - Own Passport / ID card: eigener Pass/Ausweis
@@ -109,7 +118,6 @@ fields:
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
 ---
-# TODO: Think about splitting into several parts
 segment:
   id: Question Asked
   arguments:
@@ -118,7 +126,7 @@ segment:
 question: |
   Pleae complete the details about your Spouse / registered life partner according to LPartG.
 fields:
-  - Spouse / registered partner according to LPartG: life_partner_yes_no
+  - Do you have a Spouse / registered partner according to LPartG: life_partner_yes_no
     datatype: yesnoradio
     default: false
   - First Name: life_partner.name.first
@@ -223,7 +231,6 @@ fields:
       - National Vida: 'Nationales Visum (Kategorie D)'
     default: Stay up to 90 days
     show if: entry_visa_yes_no
-    # TODO: Should this be a country or free text?
   - Visa issued by: visa_issuer
     default: TBD
     show if: entry_visa_yes_no
@@ -250,9 +257,9 @@ fields:
       variable: visa_spatial_restriction
       is: beschränkt auf
   # TODO: Always show? Free text?
-  - Requirement: visa_requirement
-    show if: entry_visa_yes_no
-    default: TBD
+  # - Requirement: visa_requirement
+  #   show if: entry_visa_yes_no
+  #   default: TBD
 ---
 segment:
   id: Question Asked
