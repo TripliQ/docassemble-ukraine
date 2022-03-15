@@ -22,7 +22,7 @@ content: |
 ### final_document.yml ###
 template: final_document_question
 content: |
-  Your Document was created!
+  Application for residence title according to § 24 AufenthaltsG has been created!
 ---
 ### final_document.yml ###
 template: final_document_subquestion
