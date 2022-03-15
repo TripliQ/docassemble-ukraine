@@ -263,8 +263,11 @@ question: |
   Please complete the following questions about your stay in Germany
 fields:
   - Current Residence City: residence_current_city
+    input type: area
     default: Berlin
   - Purpose of the residence: residence_purpose
+    input type: area
     default: Flucht vor Krieg
   - Intended duration of stay: residence_duration
+    input type: area
     default: Ende des Kriegs
