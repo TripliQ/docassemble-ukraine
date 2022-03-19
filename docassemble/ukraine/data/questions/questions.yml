@@ -32,7 +32,7 @@ ssegment:
     count: True
     question: Person Details
 question: |
-  Pleae complete the details about yourself.
+  Please complete the details about yourself.
 fields:
   - First Name: applicant.name.first
     default: Iryna
@@ -105,7 +105,7 @@ segment:
     count: True
     question: Person ID Details
 question: |
-  Pleae complete the details about your passport or ID card
+  Please complete the details about your passport or ID card
 # TODO: What to do if no ID card?
 fields:
   - Passport / ID card: applicant.passport_id
@@ -139,7 +139,7 @@ segment:
     count: True
     question: Life Partner Details
 question: |
-  Pleae complete the details about your Spouse / registered life partner according to LPartG.
+  Please complete the details about your Spouse / registered life partner according to LPartG.
 fields:
   - Do you have a spouse/registered partner who also wants to apply for a permission to stay?: life_partner_yes_no
     datatype: yesnoradio
