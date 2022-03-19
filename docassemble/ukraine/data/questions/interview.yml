@@ -1,6 +1,7 @@
 ### Translation Files ###
 translations:
   - interview_de.xlsx
+  - interview_uk.xlsx
 ---
 default language: en
 ### TripliQ Base Files ###
