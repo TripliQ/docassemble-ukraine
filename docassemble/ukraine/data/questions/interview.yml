@@ -1,49 +1,13 @@
 ### Translation Files ###
-# translations:
-#   - interview_en.xlsx
+translations:
+  - interview_de.xlsx
 ---
+default language: en
 ### TripliQ Base Files ###
 include:
-  - docassemble.tripliqbase:data/questions/intro.yml
-  - docassemble.tripliqbase:data/questions/disclaimer.yml
   - questions.yml
   - document.yml
   - metadata.yml
-### intro.yml ###
-template: intro_question
-content: |
-  Application for residence title according to § 24 AufenthaltsG
----
-### intro.yml ##
-template: intro_subquestion
-content: |
-  Easily complete your application with an online interview in a few simple steps.
----
-### final_document.yml ###
-template: final_document_question
-content: |
-  Your application for residence title according to § 24 AufenthaltsG has been created!
----
-### final_document.yml ###
-template: final_document_subquestion
-content: |
-  #### Congrats on completing the application 🎉
-
-  1. Download the application below as **PDF**
-  2. Print the application
-  3. <span style="color:red">**Sign the application**</span> at the bottom where it says **Unterschrift**
-  4. Add the copied IDs / passports
-  5. Send it to the correct address from the previous step
----
-### final_document.yml ###
-template: final_document_partner
-content: |
----
-### INTERVIEW PARAMERTERS ###
-code: |
-  # intro.yml
-  intro_screen_image_name = 'undraw_onboarding_re_6osc.svg'
-  partner_image_name = None
 ---
 ### INTERVIEW FEATURES ###
 features:
@@ -52,29 +16,19 @@ features:
   progress bar method: default
 ---
 ### DE INTERVIEW SECTIONS ###
-# language: de
-# sections:
-#   - start: Start
-#   - disclaimer: TripliQ Hinweis
-#   - moving_out: Auszugsdatum
-#   - flat_past: Bisherige Wohnung
-#     subsections:
-#       - flat_past_address: Adresse
-#       - flat_past_type: Art
-#   - flat_future: Zukünftige Wohnung
-#     subsections:
-#       - flat_future_address: Adresse
-#       - flat_future_type: Art
-#   - person: Personen
-#     subsections:
-#       - person_number: Anzahl
-#       - person_details: Details
-#   - additional_flats: Weitere Wohnungen
-#     subsections:
-#       - additional_flats_number: Anzahl
-#       - additional_flats_details: Details
-#   - feedback: Feedback (optional)
-#   - download: Download
+language: de
+sections:
+  - start: Start
+  - section_applicant: Informationen zum Antragsteller
+    subsections:
+      - section_personal_info: Persönliche Informationen
+      - sektion_id_details: ID / Reisepass Details
+  - section_life_partner: Lebenspartner
+  - section_children: Kinder
+  - section_arrival: Ankunft
+  - section_stay_germany: Aufenthalt in Deutschland
+  - section_checklist: Abschließende Checkliste
+  - download: Herunterladen
 ---
 ### EN INTERVIEW SECTIONS ###
 language: en

@@ -5,15 +5,18 @@ segment id: Interview Completed
 ga id: Interview Completed
 event: final_screen
 question: |
-  ${ final_document_question }
+  Your application for residence title according to § 24 AufenthaltsG has been created!
 subquestion: |
   ${ static_image('undraw_done_a34v.svg', width='70%')  }
   <br>
   <br>
-  ${ final_document_subquestion }
+  #### Congrats on completing the application 🎉
 
-right: |
-  ${ final_document_partner }
+  1. Download the application below as **PDF**
+  2. Print the application
+  3. <span style="color:red">**Sign the application**</span> at the bottom where it says **Unterschrift**
+  4. Add the copied IDs / passports
+  5. Send it to the correct address from the previous step
 attachment code: final_document
 section: Download
 progress: 100

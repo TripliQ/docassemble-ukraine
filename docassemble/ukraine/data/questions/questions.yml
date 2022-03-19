@@ -3,6 +3,15 @@ objects:
   - life_partner: Individual
   - children: DAList.using(object_type=Individual, ask_number=True)
 ---
+segment id: Interview Started
+ga id: Interview Started
+question: |
+  Application for residence title according to § 24 AufenthaltsG
+subquestion: |
+  ${ static_image('undraw_onboarding_re_6osc.svg', width='70%') }
+continue button field: intro_screen
+section: start
+---
 segment:
   id: Language Chosen
 question: |
@@ -13,8 +22,9 @@ subquestion: |
 field: user_language
 choices:
   - English/англійська: en
+  - Ukranian/Українка: uk
+  - Deutsch/німецький: de
 default: en
-#   - Ukranian/Українка: en
 ---
 ssegment:
   id: Question Asked
@@ -249,7 +259,7 @@ fields:
       - Visa for flight transit: 'Visum für Flughafentransit (Kategorie A)'
       - Visa for transit: 'Vissum für Durchreise (Kategorie B)'
       - Stay up to 90 days: 'Aufenthalt von bis zu 90 Tagen (Kategorie C)'
-      - National Vida: 'Nationales Visum (Kategorie D)'
+      - National Visa: 'Nationales Visum (Kategorie D)'
     default: Stay up to 90 days
     show if: entry_visa_yes_no
   - Visa issued by: visa_issuer
