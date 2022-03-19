@@ -31,6 +31,21 @@ sections:
   - section_checklist: Abschließende Checkliste
   - download: Herunterladen
 ---
+### UK INTERVIEW SECTIONS ###
+language: uk
+sections:
+  - start: Початок
+  - section_applicant: Інформація про заявника
+    subsections:
+      - section_personal_info: Особиста інформація
+      - secction_id_details: ідентифікаційний номер / паспортні дані
+  - section_life_partner: Партнер життя
+  - section_children: Діти
+  - section_arrival: Прибуття
+  - section_stay_germany: Залишайтеся в Німеччині
+  - section_checklist: Остаточний контрольний список
+  - download: Завантажити
+---
 ### EN INTERVIEW SECTIONS ###
 language: en
 sections:
