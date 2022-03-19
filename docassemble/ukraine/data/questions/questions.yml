@@ -13,8 +13,8 @@ subquestion: |
 field: user_language
 choices:
   - English/англійська: en
-  - Ukranian/Українка: en
 default: en
+#   - Ukranian/Українка: en
 ---
 ssegment:
   id: Question Asked
@@ -25,15 +25,15 @@ question: |
   Pleae complete the details about yourself.
 fields:
   - First Name: applicant.name.first
-    default: Max Otto
+    default: Iryna
   - Last Name / Birthname: applicant.name.last
-    default: Mustermann
+    default: Bondarenko
   - Residence (Address): applicant.address.address
-    default: Musterstraße 12
+    default: Astronomicheskaya 22
   - Residence (Postal Code): applicant.address.postal_code
     default: 12345
   - Residence (City): applicant.address.city
-    default: Musterstadt
+    default: Kharkov
   - Residence (Country): applicant.country
     code: |
       countries_list()
@@ -42,7 +42,7 @@ fields:
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Place of birth: applicant.place_of_birth
-    default: Musterhausen
+    default: Kharkov
   - Country of birth: applicant.country_of_birth
     code: |
       countries_list()
@@ -51,7 +51,7 @@ fields:
     choices:
       - Male: Männlich
       - Female: Weiblich
-    default: Male
+    default: Female
   - Eye Color: applicant.eye_color
     choices:
       - Blue: Blau
@@ -135,10 +135,10 @@ fields:
     datatype: yesnoradio
     default: false
   - First Name: life_partner.name.first
-    default: Max Otto
+    default: Iryna
     show if: life_partner_yes_no
   - Last Name / Birthname: life_partner.name.last
-    default: Mustermann
+    default: Bondarenko
     show if: life_partner_yes_no
   - Date of birth: life_partner.birthdate
     datatype: date
@@ -191,9 +191,9 @@ question: |
   Please complete the info about your ${ ordinal(i) } child
 fields:
   - First Name: children[i].name.first
-    default: Max Otto
+    default: Iryna
   - Last Name: children[i].name.last
-    default: Mustermann
+    default: Bondarenko
   - Date of birth: children[i].birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
@@ -208,7 +208,7 @@ fields:
     choices:
       - Male: Männlich
       - Female: Weiblich
-    default: Male
+    default: Female
   - Residence (Address): children[i].address.address
     default: ${ applicant.address.address }
   - Residence (Postal Code): children[i].address.postal_code

@@ -1,0 +1,61 @@
+metadata:
+  active: True
+  unlisted: False
+  price: 0
+  originalPrice: 0
+  cta:
+    de: 'Antrag stellen'
+    en: 'Create application'
+  detailTitle:
+    de: Antrag auf Aufenthaltstitel gem. § 24 AufenthaltsG
+    en: Application for residence title according to § 24 AufenthaltsG
+  title:
+    de: Aufenthaltstitel gem. § 24 AufenthaltsG
+    en: Residence title according to § 24 AufenthaltsG
+  short title:
+    de: Antrag
+    en: Application
+  tab title:
+    en: 'TripliQ | Aufenthaltstitel gem. § 24 AufenthaltsG'
+    de: 'TripliQ | Residence title according to § 24 AufenthaltsG'
+  description:
+    de: 'Wir haben ein kostenloses Legal-Tech-Tool für ukrainische Flüchtlinge entwickelt, um den Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG mit einem einfachen Online-Formular auszufüllen.'
+    en: 'We created a free legal tech tool for Ukrainian refugees to complete the application for residence title according to § 24 AufenthaltsG with an easy online form.'
+  subtitle:
+    en: 'TripliQ | Aufenthaltstitel gem. § 24 AufenthaltsG'
+    de: 'TripliQ | Residence title according to § 24 AufenthaltsG'
+  authors:
+    - name: Felix Vemmer
+      organization: TripliQ
+  languages:
+    - en
+  partners:
+  images:
+    interview: docassemble.ukraine/interview_screenshot.png
+    document: docassemble.ukraine/document.jpg
+  social:
+    image: docassemble.ukraine:data/static/undraw_onboarding_re_6osc.svg
+    description:
+      de: 'Wir haben ein kostenloses Legal-Tech-Tool für ukrainische Flüchtlinge entwickelt, um den Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG mit einem einfachen Online-Formular auszufüllen.'
+      en: 'We created a free legal tech tool for Ukrainian refugees to complete the application for residence title according to § 24 AufenthaltsG with an easy online form.'
+  features:
+    de:
+      - safety:
+        title: 'Von Anwälten erstellt'
+        description: 'In Zusammenarbeit mit Anwälten haben wir ein einfachen Antrag auf Aufenthaltstitel gem. § 24 AufenthaltsG erarbeitet.'
+      - easy:
+        title: Einfacher als du denkst
+        description: 'Dein Antrag kann mit wenigen Klicks durch ein einfaches Interview online erstellt werden. Downloade am Schluss dein Word oder PDF Dokument und fertig ist dein Antrag.'
+      - multilingual:
+        title: Mehrsprachiges Interview
+        description: 'Momentan bieten wir nur Englisch als Sprache an, arbeiten aber bereits an einer deutschen und ukrainischen Version.'
+    en:
+      - safety:
+        title: Created by lawyers
+        description: In cooperation with lawyers we have developed a simple application for a residence permit according to § 24 AufenthaltsG.
+      - easy:
+        title: Easier than you think
+        description: Your application can be created online with a few clicks through a simple interview. Download your Word or PDF document at the end and your application is ready.
+      - multilingual:
+        title: Mehrsprachiges Interview
+        description: At the moment we only offer English as a language, but we are already working on a German and Ukrainian version.

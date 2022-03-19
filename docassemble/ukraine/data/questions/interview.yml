@@ -8,7 +8,7 @@ include:
   - docassemble.tripliqbase:data/questions/disclaimer.yml
   - questions.yml
   - document.yml
-#   - metadata.yml
+  - metadata.yml
 ### intro.yml ###
 template: intro_question
 content: |
