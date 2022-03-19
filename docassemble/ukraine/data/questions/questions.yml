@@ -28,12 +28,22 @@ fields:
     default: Max Otto
   - Last Name / Birthname: applicant.name.last
     default: Mustermann
+  - Residence (Address): applicant.address.address
+    default: Musterstraße 12
+  - Residence (Postal Code): applicant.address.postal_code
+    default: 12345
+  - Residence (City): applicant.address.city
+    default: Musterstadt
+  - Residence (Country): applicant.country
+    code: |
+      countries_list()
+    default: Ukraine
   - Date of birth: applicant.birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Birth Place: applicant.place_of_birth
+  - Place of birth: applicant.place_of_birth
     default: Musterhausen
-  - Birth State: applicant.country_of_birth
+  - Country of birth: applicant.country_of_birth
     code: |
       countries_list()
     default: Ukraine
@@ -56,11 +66,7 @@ fields:
     code: |
       countries_list()
     default: Ukraine
-  - Previous nationality: applicant.previous_nationality
-    code: |
-      countries_list()
-    default: Ukraine
-  - Ethnicity: applicant.ethnicity
+  - Previous nationality (only applicable if you had a different nationality before): applicant.previous_nationality
     code: |
       countries_list()
     default: Ukraine
@@ -73,9 +79,9 @@ fields:
       - Divorced: geschieden
       - Widowed: verwitwet
     default: ledig
-  - Marital status since: applicant.marital_status_since
-    datatype: integer
-    default: 1970
+  - Date of wedding/ registration: applicant.date_of_wedding
+    datatype: date
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Phone: applicant.phone
     default: +380 XXX XXX XXX
   - Email: applicant.email
@@ -99,7 +105,9 @@ fields:
       - Registered with Mother: eingetragen bei Vater
     default: Own Passport / ID card
   - Type of ID: applicant.id_type
-    default: Passsport
+    choices:
+      - Passport: Reisepass
+      - ID Card: Ausweis
   - ID Number: applicant.id_number
     default: ABCDEFG12345
   - Issued on: applicant.id_issued_on
@@ -112,13 +120,6 @@ fields:
     code: |
       countries_list()
     default: Ukraine
-  - Right of return to state: applicant.right_return_state
-    code: |
-      countries_list()
-    default: Ukraine
-  - Right of return to state valid until: applicant.right_return_state_until
-    datatype: date
-    default: ${ format_date(today(), format='yyyy-MM-dd') }
 progress: 20
 section: secction_id_details
 ---
@@ -130,7 +131,7 @@ segment:
 question: |
   Pleae complete the details about your Spouse / registered life partner according to LPartG.
 fields:
-  - Do you have a Spouse / registered partner according to LPartG: life_partner_yes_no
+  - Do you have a spouse/registered partner who also wants to apply for a permission to stay?: life_partner_yes_no
     datatype: yesnoradio
     default: false
   - First Name: life_partner.name.first
@@ -149,13 +150,19 @@ fields:
       - Female: Weiblich
     default: Female
     show if: life_partner_yes_no
-  - Reidence (City): life_partner.residence_city
-    default: Musterhausen
+  - Residence (Address): life_partner.address.address
+    default: ${ applicant.address.address }
     show if: life_partner_yes_no
-  - Reidence (State): life_partner.residence_state
+  - Residence (Postal Code): life_partner.address.postal_code
+    default: ${ applicant.address.postal_code }
+    show if: life_partner_yes_no
+  - Residence (City): life_partner.address.city
+    default: ${ applicant.address.city }
+    show if: life_partner_yes_no
+  - Residence (Country): life_partner.residence_state
     code: |
       countries_list()
-    default: Ukraine
+    default: ${ applicant.country }
     show if: life_partner_yes_no
 progress: 30
 section: section_life_partner
@@ -202,12 +209,16 @@ fields:
       - Male: Männlich
       - Female: Weiblich
     default: Male
-  - Reidence (City): children[i].residence_city
-    default: Musterhausen
-  - Reidence (State): children[i].residence_state
+  - Residence (Address): children[i].address.address
+    default: ${ applicant.address.address }
+  - Residence (Postal Code): children[i].address.postal_code
+    default: ${ applicant.address.postal_code }
+  - Residence (City): children[i].address.city
+    default: ${ applicant.address.city }
+  - Residence (Country): children[i].residence_state
     code: |
       countries_list()
-    default: Ukraine
+    default: ${ applicant.country }
 progress: 50
 section: section_children
 ---
@@ -219,7 +230,7 @@ segment:
 question: |
   Please complete the following questions about your arrival
 fields:
-  - Entry last on: entry_date
+  - Entry to Germany: entry_date
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Entered with a visa: entry_visa_yes_no
@@ -282,13 +293,10 @@ question: |
   Please complete the following questions about your stay in Germany
 fields:
   - Current Residence City: residence_current_city
-    input type: area
     default: Berlin
   - Purpose of the residence: residence_purpose
-    input type: area
     default: Flucht vor Krieg
   - Intended duration of stay: residence_duration
-    input type: area
     default: Ende des Kriegs
 progress: 70
 section: section_stay_germany
