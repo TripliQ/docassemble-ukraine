@@ -1,3 +1,5 @@
+default language: en
+---
 objects:
   - applicant: Individual
   - life_partner: Individual
@@ -19,7 +21,7 @@ question: |
 subquestion: |
   Please choose your language
   (Будь ласка, виберіть свою мову).
-field: user_language
+field: selected_language
 choices:
   - English/англійська: en
   - Ukranian/Українка: uk
