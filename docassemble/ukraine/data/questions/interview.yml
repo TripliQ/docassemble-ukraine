@@ -3,8 +3,6 @@ translations:
   - interview_de.xlsx
   - interview_uk.xlsx
 ---
-default language: en
----
 ### TripliQ Base Files ###
 include:
   - questions.yml
@@ -66,6 +64,7 @@ sections:
 initial: True
 code: |
   set_language(user_language)
+  process_action()
 ---
 ### INTERVIEW LOGIC ###
 mandatory: True
