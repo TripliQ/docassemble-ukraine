@@ -200,7 +200,7 @@ segment:
     count: True
     question: Children Details
 question: |
-  Bitte vervollständigen Sie die Informationen über Ihr ${ ordinal_number(i) } Kind
+  Bitte vervollständigen Sie die Informationen über Ihr ${ i + 1 }. Kind
 fields:
   - Vorname: children[i].name.first
     default: Iryna
