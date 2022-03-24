@@ -1,5 +1,3 @@
-default language: en
----
 objects:
   - applicant: Individual
   - life_partner: Individual

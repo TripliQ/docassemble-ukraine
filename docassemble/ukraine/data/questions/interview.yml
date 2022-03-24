@@ -1,5 +1,3 @@
-default language: en
----
 ### Translation Files ###
 translations:
   - interview_de.xlsx
