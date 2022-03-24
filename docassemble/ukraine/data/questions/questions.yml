@@ -182,7 +182,7 @@ segment:
   id: Question Asked
   arguments:
     count: True
-    question: Anzhal der Kinder
+    question: Number Children
 question: |
   Wie viele Kinder sind mit Ihnen nach Deutschland gekommen?
 fields:

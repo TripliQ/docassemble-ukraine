@@ -23,7 +23,7 @@ progress: 100
 ---
 ### ATTACHMENT SETTINGS ###
 attachment:
-  name: Application for residence title according to § 24 AufenthaltsG
+  name: Antrag auf Erteilung eines Aufenthaltstitels nach § 24 AufenthaltsG
   filename: Application Residence Title
   variable name: final_document
   allow emailing: True
