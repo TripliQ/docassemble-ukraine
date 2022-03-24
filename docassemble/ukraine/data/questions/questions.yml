@@ -6,7 +6,7 @@ objects:
 segment id: Interview Started
 ga id: Interview Started
 question: |
-  Application for residence title according to § 24 AufenthaltsG
+  Antrag auf Aufenthaltstitel gem. § 24 AufenthaltsG
 subquestion: |
   ${ static_image('undraw_onboarding_re_6osc.svg', width='70%') }
 continue button field: intro_screen
@@ -17,13 +17,14 @@ segment:
 question: |
   Language settings
 subquestion: |
-  Please choose your language
+  Please choose your language.
   (Будь ласка, виберіть свою мову).
+  Bitte wählen Sie eine Sprache aus.
 field: selected_language
 choices:
-  - English/англійська: en
-  - Ukranian/Українка: uk
-  - Deutsch/німецький: de
+  - English/англійська/Englisch: en
+  - Ukranian/Українка/Ukrainisch: uk
+  - German/німецький/Deutsch: de
 default: en
 ---
 ssegment:
@@ -32,67 +33,67 @@ ssegment:
     count: True
     question: Person Details
 question: |
-  Please complete the details about yourself.
+  Bitte vervollständigen Sie die Angaben zu Ihrer Person
 fields:
-  - First Name: applicant.name.first
+  - Vorname: applicant.name.first
     default: Iryna
-  - Last Name / Birthname: applicant.name.last
+  - Nachname: applicant.name.last
     default: Bondarenko
-  - Residence (Address): applicant.address.address
+  - Wohnistz Adresse: applicant.address.address
     default: Astronomicheskaya 22
-  - Residence (Postal Code): applicant.address.postal_code
+  - Wohnsitz PLZ: applicant.address.postal_code
     default: 12345
-  - Residence (City): applicant.address.city
+  - Wohnsitz Stadt: applicant.address.city
     default: Kharkov
-  - Residence (Country): applicant.country
+  - Wohnsitz Land: applicant.country
     code: |
       countries_list()
     default: Ukraine
-  - Date of birth: applicant.birthdate
+  - Geburtsdatum: applicant.birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Place of birth: applicant.place_of_birth
+  - Geburtsort: applicant.place_of_birth
     default: Kharkov
-  - Country of birth: applicant.country_of_birth
+  - Geburtsland: applicant.country_of_birth
     code: |
       countries_list()
     default: Ukraine
-  - Gender: applicant.gender
+  - Geschlecht: applicant.gender
     choices:
-      - Male: Männlich
-      - Female: Weiblich
+      - Männlich: Männlich
+      - Weiblich: Weiblich
     default: Female
-  - Eye Color: applicant.eye_color
+  - Augenfarbe: applicant.eye_color
     choices:
-      - Blue: Blau
-      - Green: Grün
-      - Gray: Grau
-      - Brown: Braun
-    default: Brown
-  - Height: applicant.height
+      - Blau: Blau
+      - Grün: Grün
+      - Grau: Grau
+      - Braun: Braun
+    default: Braun
+  - Größe: applicant.height
     datatype: integer
     default: 170
-  - Nationality: applicant.nationality
+  - Staatsangehörigkeit: applicant.nationality
     code: |
       countries_list()
     default: Ukraine
-  - Previous nationality (only applicable if you had a different nationality before): applicant.previous_nationality
+  - Vorherige Staatsangehörigkeit (nur zutreffend, wenn Sie zuvor eine andere Staatsangehörigkeit hatten): applicant.previous_nationality
     code: |
       countries_list()
     default: Ukraine
-  - Marital status: applicant.marital_status
+  - Familienstand: applicant.marital_status
     choices:
-      - Single: ledig
-      - Married: verheiratet
-      - Living seperately: getreent lebend
-      - Living in registered partnership: in eingetragener Lebenspartnerschaft lebend
-      - Divorced: geschieden
-      - Widowed: verwitwet
+      - ledig: ledig
+      - verheiratet: verheiratet
+      - getreent lebend: getreent lebend
+      - in eingetragener Lebenspartnerschaft lebend: in eingetragener Lebenspartnerschaft lebend
+      - geschieden: geschieden
+      - verwitwet: verwitwet
     default: ledig
-  - Date of wedding/ registration: applicant.date_of_wedding
+  - Datum der Hochzeit/ Anmeldung: applicant.date_of_wedding
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Phone: applicant.phone
+  - Telefon: applicant.phone
     default: +380 XXX XXX XXX
   - Email: applicant.email
     default: example@mail.com
@@ -105,28 +106,28 @@ segment:
     count: True
     question: Person ID Details
 question: |
-  Please complete the details about your passport or ID card
+  Bitte geben Sie die Details Ihres Reisepasses oder Personalausweises an
 # TODO: What to do if no ID card?
 fields:
-  - Passport / ID card: applicant.passport_id
+  - Reisepass / Personalausweis: applicant.passport_id
     choices:
-      - Own Passport / ID card: eigener Pass/Ausweis
-      - Registered with Father: eingetragen bei Vater
-      - Registered with Mother: eingetragen bei Vater
-    default: Own Passport / ID card
-  - Type of ID: applicant.id_type
+      - eigener Pass/Ausweis: eigener Pass/Ausweis
+      - eingetragen bei Vater: eingetragen bei Vater
+      - eingetragen bei Vater: eingetragen bei Vater
+    default: eigener Pass/Ausweis
+  - Art Ausweisdokument: applicant.id_type
     choices:
-      - Passport: Reisepass
-      - ID Card: Ausweis
-  - ID Number: applicant.id_number
+      - Reisepass: Reisepass
+      - Personalausweis: Personalausweis
+  - Ausweisdokument Nummer: applicant.id_number
     default: ABCDEFG12345
-  - Issued on: applicant.id_issued_on
+  - Ausgestellt am: applicant.id_issued_on
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Valid until: applicant.id_valid_until
+  - Gültig bis: applicant.id_valid_until
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Issuing State: applicant.issuing_state
+  - Ausstellender Staat: applicant.issuing_state
     code: |
       countries_list()
     default: Ukraine
@@ -137,39 +138,39 @@ segment:
   id: Question Asked
   arguments:
     count: True
-    question: Life Partner Details
+    question: Details Life Partner
 question: |
-  Please complete the details about your Spouse / registered life partner according to LPartG.
+  Bitte füllen Sie die Angaben zu Ihrem Ehegatten / eingetragenen Lebenspartner gemäß LPartG aus
 fields:
-  - Do you have a spouse/registered partner who also wants to apply for a permission to stay?: life_partner_yes_no
+  - Haben Sie einen Ehegatten/eingetragenen Lebenspartner, der ebenfalls eine Aufenthaltserlaubnis beantragen möchte?: life_partner_yes_no
     datatype: yesnoradio
     default: false
-  - First Name: life_partner.name.first
+  - Vorname: life_partner.name.first
     default: Iryna
     show if: life_partner_yes_no
-  - Last Name / Birthname: life_partner.name.last
+  - Nachname: life_partner.name.last
     default: Bondarenko
     show if: life_partner_yes_no
-  - Date of birth: life_partner.birthdate
+  - Geburtsdatum: life_partner.birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
     show if: life_partner_yes_no
-  - Gender: life_partner.gender
+  - Geschlecht: life_partner.gender
     choices:
       - Male: Männlich
       - Female: Weiblich
     default: Female
     show if: life_partner_yes_no
-  - Residence (Address): life_partner.address.address
+  - Wohnsitz Addresse: life_partner.address.address
     default: ${ applicant.address.address }
     show if: life_partner_yes_no
-  - Residence (Postal Code): life_partner.address.postal_code
+  - Wohnsitz PLZ: life_partner.address.postal_code
     default: ${ applicant.address.postal_code }
     show if: life_partner_yes_no
-  - Residence (City): life_partner.address.city
+  - Wohnsitz Stadt: life_partner.address.city
     default: ${ applicant.address.city }
     show if: life_partner_yes_no
-  - Residence (Country): life_partner.residence_state
+  - Wohnsitz Land: life_partner.residence_state
     code: |
       countries_list()
     default: ${ applicant.country }
@@ -181,11 +182,11 @@ segment:
   id: Question Asked
   arguments:
     count: True
-    question: Number Children
+    question: Anzhal der Kinder
 question: |
-  How many children came with you to Germany?
+  Wie viele Kinder sind mit Ihnen nach Deutschland gekommen?
 fields:
-  - Number: children.target_number
+  - Anzahl: children.target_number
     datatype: integer
     max: 4
     default: 0
@@ -198,34 +199,34 @@ segment:
     count: True
     question: Children Details
 question: |
-  Please complete the info about your ${ ordinal(i) } child
+  Bitte vervollständigen Sie die Informationen über Ihr ${ ordinal(i) } Kind
 fields:
-  - First Name: children[i].name.first
+  - Vorname: children[i].name.first
     default: Iryna
-  - Last Name: children[i].name.last
+  - Nachname: children[i].name.last
     default: Bondarenko
-  - Date of birth: children[i].birthdate
+  - Geburtsdatum: children[i].birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Place of birth: children[i].place_of_birth
+  - Geburtsort: children[i].place_of_birth
     default: Kyiv
   # TODO: Should be multiple nationalities
-  - Nationality: children[i].nationality
+  - Staatsangehörigkeit: children[i].nationality
     code: |
       countries_list()
     default: Ukraine
-  - Gender: children[i].gender
+  - Geschlecht: children[i].gender
     choices:
       - Male: Männlich
       - Female: Weiblich
     default: Female
-  - Residence (Address): children[i].address.address
+  - Wohnsitz Addresse: children[i].address.address
     default: ${ applicant.address.address }
-  - Residence (Postal Code): children[i].address.postal_code
+  - Wohnsitz PLZ: children[i].address.postal_code
     default: ${ applicant.address.postal_code }
-  - Residence (City): children[i].address.city
+  - Wohnsitz Stadt: children[i].address.city
     default: ${ applicant.address.city }
-  - Residence (Country): children[i].residence_state
+  - Wohnsitz Land: children[i].residence_state
     code: |
       countries_list()
     default: ${ applicant.country }
@@ -238,52 +239,52 @@ segment:
     count: True
     question: Arrival
 question: |
-  Please complete the following questions about your arrival
+  Bitte beantworten Sie die folgenden Fragen zu Ihrer Ankunft
 fields:
-  - Entry to Germany: entry_date
+  - Einreise nach Deutschland: entry_date
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Entered with a visa: entry_visa_yes_no
+  - Einreise mit Visum: entry_visa_yes_no
     datatype: yesnoradio
-  - Entry: entry_visa_type
+  - Einreise: entry_visa_type
     choices:
-      - with Shengen visa: mit Schengener Visum
-      - with national German visa: mit nationalen Deutschen Visum
+      - mit Shengen-Visum: mit Schengener Visum
+      - mit nationalem deutschen Visum: mit nationalen Deutschen Visum
     default: with national German visa
     show if: entry_visa_yes_no
-  - Visa number: visa_number
+  - Visumnummer: visa_number
     default: XXX-XXX-XXX
     show if: entry_visa_yes_no
-  - Visa category: entry_visa_category
+  - Visum-Kategorie: entry_visa_category
     choices:
-      - Visa for flight transit: 'Visum für Flughafentransit (Kategorie A)'
-      - Visa for transit: 'Vissum für Durchreise (Kategorie B)'
-      - Stay up to 90 days: 'Aufenthalt von bis zu 90 Tagen (Kategorie C)'
-      - National Visa: 'Nationales Visum (Kategorie D)'
-    default: Stay up to 90 days
+      - Visum für Flugtransit: 'Visum für Flughafentransit (Kategorie A)'
+      - Visum für die Durchreise: 'Vissum für Durchreise (Kategorie B)'
+      - Aufenthalt bis zu 90 Tagen: 'Aufenthalt von bis zu 90 Tagen (Kategorie C)'
+      - Nationales Visum: 'Nationales Visum (Kategorie D)'
+    default: Aufenthalt bis zu 90 Tagen
     show if: entry_visa_yes_no
-  - Visa issued by: visa_issuer
+  - Visum ausgestellt von: visa_issuer
     default: TBD
     show if: entry_visa_yes_no
-  - Visa issued date: visa_issued_date
+  - Ausstellungsdatum des Visums: visa_issued_date
     datatype: date
     show if: entry_visa_yes_no
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Visa valid from: visa_valid_from
+  - Visum gültig von: visa_valid_from
     datatype: date
     show if: entry_visa_yes_no
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Visa valid until: visa_valid_until
+  - Visum gültig bis: visa_valid_until
     datatype: date
     show if: entry_visa_yes_no
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Spatial restriction: visa_spatial_restriction
+  - Räumliche Beschränkung: visa_spatial_restriction
     choices:
-      - Without spatial restriction: ohne räumliche Beschränkung
-      - With spatial restriction: beschränkt auf
+      - ohne räumliche Beschränkung: ohne räumliche Beschränkung
+      - beschränkt auf: beschränkt auf
     show if: entry_visa_yes_no
-    default: Without spatial restriction
-  - Spatial restriction to: visa_spatial_restriction_details
+    default: ohne räumliche Beschränkung
+  - Räumliche Beschränkung auf: visa_spatial_restriction_details
     show if:
       variable: visa_spatial_restriction
       is: beschränkt auf
@@ -300,13 +301,17 @@ segment:
     count: True
     question: Residence
 question: |
-  Please complete the following questions about your stay in Germany
+  Bitte beantworten Sie die folgenden Fragen zu Ihrem Aufenthalt in Deutschland
 fields:
-  - Current Residence City: residence_current_city
+  - Aktueller Wohnsitz in Deutschland: residence_current_city
     default: Berlin
-  - Purpose of the residence: residence_purpose
+  - Zweck des Aufenthalts: residence_purpose
+    choices:
+      - Flucht vor Krieg: Flucht vor Krieg
     default: Flucht vor Krieg
-  - Intended duration of stay: residence_duration
+  - Beabsichtigte Dauer des Aufenthalts: residence_duration
+    choices:
+      - Ende des Kriegs: Ende des Kriegs
     default: Ende des Kriegs
 progress: 70
 section: section_stay_germany
@@ -315,22 +320,22 @@ segment:
   id: Question Asked
   arguments:
     count: True
-    question: Address
+    question: Checklist
 question: |
-  Almost done, complete the following steps before sending
+  Fast fertig, vervollständigen Sie die folgenden Schritte vor dem Absenden
 subquestion: |
-  Please watch the video below and follow the instructions to find the **right address** to send your application
+  Bitte sehen Sie sich das folgende Video an und folgen Sie den Anweisungen, um die **richtige Adresse** für Ihren Antrag  zu finden
 video: |
-  [YOUTUBE YkgkThdzX-8]
+  [YOUTUBE 3hO_jSAgwKI]
 fields:
-  - Noted right address from the video above as address for application: right_address
+  - Die richtige Adresse aus dem Video oben als Adresse für den Antrag notiert: right_address
     datatype: yesnowide
-  - Copied all IDs / passports to add them to the application after download: copy_ids
+  - Alle Ausweise / Pässe kopiert, um sie nach dem Herunterladen des Antrags hinzuzufügen: copy_ids
     datatype: yesnowide
 validation code: |
   if not copy_ids:
-    validation_error("Please make sure you took a copy of all mentioned IDs / passport to add them to the application.")
+    validation_error("Bitte vergewissern Sie sich, dass Sie eine Kopie aller genannten Ausweise/Pässe mitgenommen haben, um sie dem Antrag beizufügen.")
   if not right_address:
-    validation_error("Please follow the instructions in the video and note down the correct address.")
+    validation_error("Bitte folgen Sie den Anweisungen im Video und notieren Sie sich die richtige Adresse.")
 progress: 70
 section: section_checklist
