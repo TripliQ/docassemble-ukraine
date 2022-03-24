@@ -240,7 +240,7 @@ fields:
     choices:
       - mit Shengen-Visum: mit Schengener Visum
       - mit nationalem deutschen Visum: mit nationalen Deutschen Visum
-    default: with national German visa
+    default: mit nationalem deutschen Visum
     show if: entry_visa_yes_no
   - Visumnummer: visa_number
     default: XXX-XXX-XXX
