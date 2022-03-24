@@ -28,7 +28,7 @@ sections:
   - section_arrival: Ankunft
   - section_stay_germany: Aufenthalt in Deutschland
   - section_checklist: Abschließende Checkliste
-  - download: Herunterladen
+  - download: Download
 ---
 ### UK INTERVIEW SECTIONS ###
 language: uk
