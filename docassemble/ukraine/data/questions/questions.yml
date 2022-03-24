@@ -2,6 +2,7 @@ objects:
   - applicant: Individual
   - life_partner: Individual
   - children: DAList.using(object_type=Individual, ask_number=True)
+  - current_address: Address
 ---
 segment id: Interview Started
 ga id: Interview Started
@@ -39,16 +40,12 @@ fields:
     default: Iryna
   - Nachname: applicant.name.last
     default: Bondarenko
-  - Wohnistz Adresse: applicant.address.address
+  - Adresse in der Ukraine: applicant.address.address
     default: Astronomicheskaya 22
-  - Wohnsitz PLZ: applicant.address.postal_code
+  - PLZ in der Ukraine: applicant.address.postal_code
     default: 12345
-  - Wohnsitz Stadt: applicant.address.city
+  - Ort in der Ukraine: applicant.address.city
     default: Kharkov
-  - Wohnsitz Land: applicant.country
-    code: |
-      countries_list()
-    default: Ukraine
   - Geburtsdatum: applicant.birthdate
     datatype: date
     default: ${ format_date(today(), format='yyyy-MM-dd') }
@@ -162,19 +159,14 @@ fields:
       - Weiblich: Weiblich
     default: Weiblich
     show if: life_partner_yes_no
-  - Wohnsitz Addresse: life_partner.address.address
+  - Addresse in der Ukraine: life_partner.address.address
     default: ${ applicant.address.address }
     show if: life_partner_yes_no
-  - Wohnsitz PLZ: life_partner.address.postal_code
+  - PLZ in der Ukraine: life_partner.address.postal_code
     default: ${ applicant.address.postal_code }
     show if: life_partner_yes_no
-  - Wohnsitz Stadt: life_partner.address.city
+  - Ort in der Ukraine: life_partner.address.city
     default: ${ applicant.address.city }
-    show if: life_partner_yes_no
-  - Wohnsitz Land: life_partner.residence_state
-    code: |
-      countries_list()
-    default: ${ applicant.country }
     show if: life_partner_yes_no
 progress: 30
 section: section_life_partner
@@ -221,16 +213,12 @@ fields:
       - Männlich: Männlich
       - Weiblich: Weiblich
     default: Weiblich
-  - Wohnsitz Addresse: children[i].address.address
+  - Addresse in der Ukraine: children[i].address.address
     default: ${ applicant.address.address }
-  - Wohnsitz PLZ: children[i].address.postal_code
+  - PLZ in der Ukraine: children[i].address.postal_code
     default: ${ applicant.address.postal_code }
-  - Wohnsitz Stadt: children[i].address.city
+  - Ort in der Ukraine: children[i].address.city
     default: ${ applicant.address.city }
-  - Wohnsitz Land: children[i].residence_state
-    code: |
-      countries_list()
-    default: ${ applicant.country }
 progress: 50
 section: section_children
 ---
@@ -247,6 +235,7 @@ fields:
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Einreise mit Visum: entry_visa_yes_no
     datatype: yesnoradio
+    default: false
   - Einreise: entry_visa_type
     choices:
       - mit Shengen-Visum: mit Schengener Visum
@@ -304,8 +293,13 @@ segment:
 question: |
   Bitte beantworten Sie die folgenden Fragen zu Ihrem Aufenthalt in Deutschland
 fields:
-  - Aktueller Wohnsitz in Deutschland: residence_current_city
-    default: Berlin
+  - note: Bitte geben Sie hier ihre geplante oder aktuelle Adresse **in Deutschland** an.
+  - Aktuelle Adresse Deutschland: current_address.address
+    default: Musterstraße 1
+  - Aktuelle PLZ Deutschland: current_address.postal_code
+    default: 12345
+  - Aktueller Ort Deutschland: current_address.city
+    default: Musterstadt
   - Zweck des Aufenthalts: residence_purpose
     choices:
       - Flucht vor Krieg: Flucht vor Krieg
