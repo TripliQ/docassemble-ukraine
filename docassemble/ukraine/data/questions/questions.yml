@@ -62,7 +62,7 @@ fields:
     choices:
       - Männlich: Männlich
       - Weiblich: Weiblich
-    default: Female
+    default: Weiblich
   - Augenfarbe: applicant.eye_color
     choices:
       - Blau: Blau
@@ -119,6 +119,7 @@ fields:
     choices:
       - Reisepass: Reisepass
       - Personalausweis: Personalausweis
+    default: Reisepass
   - Ausweisdokument Nummer: applicant.id_number
     default: ABCDEFG12345
   - Ausgestellt am: applicant.id_issued_on
@@ -157,9 +158,9 @@ fields:
     show if: life_partner_yes_no
   - Geschlecht: life_partner.gender
     choices:
-      - Male: Männlich
-      - Female: Weiblich
-    default: Female
+      - Männlich: Männlich
+      - Weiblich: Weiblich
+    default: Weiblich
     show if: life_partner_yes_no
   - Wohnsitz Addresse: life_partner.address.address
     default: ${ applicant.address.address }
@@ -199,7 +200,7 @@ segment:
     count: True
     question: Children Details
 question: |
-  Bitte vervollständigen Sie die Informationen über Ihr ${ ordinal(i) } Kind
+  Bitte vervollständigen Sie die Informationen über Ihr ${ ordinal_number(i) } Kind
 fields:
   - Vorname: children[i].name.first
     default: Iryna
@@ -217,9 +218,9 @@ fields:
     default: Ukraine
   - Geschlecht: children[i].gender
     choices:
-      - Male: Männlich
-      - Female: Weiblich
-    default: Female
+      - Männlich: Männlich
+      - Weiblich: Weiblich
+    default: Weiblich
   - Wohnsitz Addresse: children[i].address.address
     default: ${ applicant.address.address }
   - Wohnsitz PLZ: children[i].address.postal_code
