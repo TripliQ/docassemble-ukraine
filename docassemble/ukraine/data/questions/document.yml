@@ -5,18 +5,18 @@ segment id: Interview Completed
 ga id: Interview Completed
 event: final_screen
 question: |
-  Your application for residence title according to § 24 AufenthaltsG has been created!
+  Ihr Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG ist erstellt!
 subquestion: |
   ${ static_image('undraw_done_a34v.svg', width='70%')  }
   <br>
   <br>
-  #### Congrats on completing the application 🎉
+  #### Ihr Antrag wurde erstellt 🎉
 
-  1. Download the application below as **PDF**
-  2. Print the application
-  3. <span style="color:red">**Sign the application**</span> at the bottom where it says **Unterschrift**
-  4. Add the copied IDs / passports
-  5. Send it to the correct address from the previous step
+  1. Laden Sie den Antrag als **PDF** herunter
+  2. Drucken Sie den Antrag aus
+  3. <span style=""color:red"">**Unterschreiben**</span> Sie am Ende des Dokuments den Antrag
+  4. Fügen Sie kopierte Personalauseweise / Reisepässen zu dem Antrag
+  5. Senden Sie den Antrag an die korrekte Adresse aus dem vorherigen Schritt
 attachment code: final_document
 section: download
 progress: 100
@@ -24,7 +24,7 @@ progress: 100
 ### ATTACHMENT SETTINGS ###
 attachment:
   name: Antrag auf Erteilung eines Aufenthaltstitels nach § 24 AufenthaltsG
-  filename: Application Residence Title
+  filename: Antrag Aufenthaltstitels nach § 24 AufenthaltsG
   variable name: final_document
   allow emailing: True
   docx template file: antrag_auf_aufenthaltstitel.docx
