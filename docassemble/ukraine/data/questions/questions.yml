@@ -37,23 +37,31 @@ question: |
   Bitte vervollständigen Sie die Angaben zu Ihrer Person
 fields:
   - Vorname: applicant.name.first
+    hint: Iryna
     default: Iryna
   - Nachname: applicant.name.last
+    hint: Bondarenko
     default: Bondarenko
   - Adresse in der Ukraine: applicant.address.address
+    hint: Astronomicheskaya 22
     default: Astronomicheskaya 22
   - PLZ in der Ukraine: applicant.address.postal_code
+    hint: 12345
     default: 12345
   - Ort in der Ukraine: applicant.address.city
+    hint: Kharkov
     default: Kharkov
   - Geburtsdatum: applicant.birthdate
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Geburtsort: applicant.place_of_birth
+    hint: Kharkov
     default: Kharkov
   - Geburtsland: applicant.country_of_birth
     code: |
       countries_list()
+    hint: Ukraine
     default: Ukraine
   - Geschlecht: applicant.gender
     choices:
@@ -69,14 +77,17 @@ fields:
     default: Braun
   - Größe: applicant.height
     datatype: integer
+    hint: 170
     default: 170
   - Staatsangehörigkeit: applicant.nationality
     code: |
       countries_list()
+    hint: Ukraine
     default: Ukraine
   - Vorherige Staatsangehörigkeit (nur zutreffend, wenn Sie zuvor eine andere Staatsangehörigkeit hatten): applicant.previous_nationality
     code: |
       countries_list()
+    hint: Ukraine
     default: Ukraine
   - Familienstand: applicant.marital_status
     choices:
@@ -89,10 +100,13 @@ fields:
     default: ledig
   - Datum der Hochzeit/ Anmeldung: applicant.date_of_wedding
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Telefon: applicant.phone
+    hint: +380 XXX XXX XXX
     default: +380 XXX XXX XXX
   - Email: applicant.email
+    hint: example@mail.com
     default: example@mail.com
 progress: 10
 section: section_personal_info
@@ -118,16 +132,20 @@ fields:
       - Personalausweis: Personalausweis
     default: Reisepass
   - Ausweisdokument Nummer: applicant.id_number
+    hint: ABCDEFG12345
     default: ABCDEFG12345
   - Ausgestellt am: applicant.id_issued_on
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Gültig bis: applicant.id_valid_until
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Ausstellender Staat: applicant.issuing_state
     code: |
       countries_list()
+    hint: Ukraine
     default: Ukraine
 progress: 20
 section: secction_id_details
@@ -142,15 +160,19 @@ question: |
 fields:
   - Haben Sie einen Ehegatten/eingetragenen Lebenspartner, der ebenfalls eine Aufenthaltserlaubnis beantragen möchte?: life_partner_yes_no
     datatype: yesnoradio
+    hint: false
     default: false
   - Vorname: life_partner.name.first
+    hint: Iryna
     default: Iryna
     show if: life_partner_yes_no
   - Nachname: life_partner.name.last
+    hint: Bondarenko
     default: Bondarenko
     show if: life_partner_yes_no
   - Geburtsdatum: life_partner.birthdate
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
     show if: life_partner_yes_no
   - Geschlecht: life_partner.gender
@@ -182,6 +204,7 @@ fields:
   - Anzahl: children.target_number
     datatype: integer
     max: 4
+    hint: 1
     default: 0
 progress: 40
 section: section_children
@@ -195,18 +218,23 @@ question: |
   Bitte vervollständigen Sie die Informationen über Ihr ${ i + 1 }. Kind
 fields:
   - Vorname: children[i].name.first
+    hint: Iryna
     default: Iryna
   - Nachname: children[i].name.last
+    hint: Bondarenko
     default: Bondarenko
   - Geburtsdatum: children[i].birthdate
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Geburtsort: children[i].place_of_birth
+    hint: Kyiv
     default: Kyiv
   # TODO: Should be multiple nationalities
   - Staatsangehörigkeit: children[i].nationality
     code: |
       countries_list()
+    hint: Ukraine
     default: Ukraine
   - Geschlecht: children[i].gender
     choices:
@@ -232,9 +260,11 @@ question: |
 fields:
   - Einreise nach Deutschland: entry_date
     datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Einreise mit Visum: entry_visa_yes_no
     datatype: yesnoradio
+    hint: false
     default: false
   - Einreise: entry_visa_type
     choices:
@@ -243,6 +273,7 @@ fields:
     default: mit nationalem deutschen Visum
     show if: entry_visa_yes_no
   - Visumnummer: visa_number
+    hint: XXX-XXX-XXX
     default: XXX-XXX-XXX
     show if: entry_visa_yes_no
   - Visum-Kategorie: entry_visa_category
@@ -254,19 +285,23 @@ fields:
     default: Aufenthalt bis zu 90 Tagen
     show if: entry_visa_yes_no
   - Visum ausgestellt von: visa_issuer
+    hint: TBD
     default: TBD
     show if: entry_visa_yes_no
   - Ausstellungsdatum des Visums: visa_issued_date
     datatype: date
     show if: entry_visa_yes_no
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Visum gültig von: visa_valid_from
     datatype: date
     show if: entry_visa_yes_no
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Visum gültig bis: visa_valid_until
     datatype: date
     show if: entry_visa_yes_no
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Räumliche Beschränkung: visa_spatial_restriction
     choices:
@@ -281,6 +316,7 @@ fields:
   # TODO: Always show? Free text?
   # - Requirement: visa_requirement
   #   show if: entry_visa_yes_no
+  #   hint   default: TBD
   #   default: TBD
 progress: 60
 section: section_arrival
@@ -295,10 +331,13 @@ question: |
 fields:
   - note: Bitte geben Sie hier ihre geplante oder aktuelle Adresse **in Deutschland** an.
   - Aktuelle Adresse Deutschland: current_address.address
+    hint: Musterstraße 1
     default: Musterstraße 1
   - Aktuelle PLZ Deutschland: current_address.postal_code
+    hint: 12345
     default: 12345
   - Aktueller Ort Deutschland: current_address.city
+    hint: Musterstadt
     default: Musterstadt
   - Zweck des Aufenthalts: residence_purpose
     choices:
