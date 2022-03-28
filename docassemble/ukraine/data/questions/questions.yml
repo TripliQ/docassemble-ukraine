@@ -4,6 +4,19 @@ objects:
   - family_member: DAList.using(object_type=Individual, ask_number=True)
   - current_address: Address
 ---
+segment id: Disclaimer Shown
+ga id: DisclaimerShown
+question: TripliQ Hinweis
+subquestion: |
+  TripliQ umfasst ***keine Rechtsberatung bzw. Rechtsdienstleistung***, d.h. es erfolgt keine rechtliche Prüfung des konkreten Einzelfalls im Sinne des Rechtsdienstleistungsgesetzes (RDG) durch TripliQ.
+
+  - Wir speichern Ihre Daten nicht dauerhaft. Wir nutzen Ihre Eingaben nur für die Erstellung Ihres Antrages. Danach werden Ihre Daten gelöscht.
+  - Das Angebot „TripliQ" unterstützt den Kunden durch einen softwaregestützten Interview- und Vertragserstellungsprozess bei der eigenverantwortlichen Erstellung seiner Rechtsdokumente.
+  - Dieser Prozess ist grundsätzlich so gestaltet, dass die Anwendung keine besonderen Rechtskenntnisse erfordert. Ein automatisierter Interviewprozess kann allerdings nicht jeden einzelnen Sachverhalt mit seinen spezifischen Besonderheiten erfassen.
+  - Der Kunde ist daher gehalten, die erstellten Rechtsdokumente im Hinblick auf die von ihm angestrebte Verwendung insbesondere einer Plausibilitätsprüfung zu unterziehen. Sollte eine rechtliche Prüfung im konkreten Einzelfall erforderlich werden, empfehlen wir, den Rat eines Rechtsanwalts oder einer sonstigen zur Erbringung von Rechtsdienstleistungen nach dem RDG berechtigten Stelle zu suchen.
+continue button field: disclaimer_screen
+section: disclaimer
+---
 segment id: Interview Started
 ga id: Interview Started
 question: |

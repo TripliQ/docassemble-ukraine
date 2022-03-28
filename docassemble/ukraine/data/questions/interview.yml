@@ -70,6 +70,7 @@ code: |
 mandatory: True
 code: |
   intro_screen
+  disclaimer_screen
   final_document
   copy_ids
   right_address
