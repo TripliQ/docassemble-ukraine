@@ -470,9 +470,17 @@ fields:
   - Alle Ausweise / Pässe kopiert, um sie nach dem Herunterladen des Antrags hinzuzufügen: copy_ids
     datatype: yesnowide
 validation code: |
-  if not copy_ids:
+  if not copy_ids and selected_language == 'de':
     validation_error("Bitte vergewissern Sie sich, dass Sie eine Kopie aller genannten Ausweise/Pässe mitgenommen haben, um sie dem Antrag beizufügen.")
-  if not right_address:
-    validation_error("Bitte folgen Sie den Anweisungen im Video und notieren Sie sich die richtige Adresse.")
+  if not right_address and selected_language == 'de':
+    de: validation_error("Bitte folgen Sie den Anweisungen im Video und notieren Sie sich die richtige Adresse.")
+  if not copy_ids and selected_language == 'en':
+    validation_error("Please ensure that you have taken a copy of all the above IDs/passports with you to attach to the application.")
+  if not right_address and selected_language == 'en':
+    de: validation_error("Please follow the instructions in the video and make a note of the correct address.")
+  if not copy_ids and selected_language == 'uk':
+    validation_error("Будь ласка, переконайтеся, що ви взяли з собою копію всіх вищезазначених посвідчень/паспортів, щоб прикріпити їх до заяви.")
+  if not right_address and selected_language == 'uk':
+    de: validation_error("Будь ласка, дотримуйтесь інструкцій у відео та запишіть правильну адресу.")
 progress: 70
 section: section_checklist
