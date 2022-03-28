@@ -1,7 +1,7 @@
 objects:
   - applicant: Individual
   - life_partner: Individual
-  - children: DAList.using(object_type=Individual, ask_number=True)
+  - family_member: DAList.using(object_type=Individual, ask_number=True)
   - current_address: Address
 ---
 segment id: Interview Started
@@ -98,6 +98,9 @@ fields:
       - geschieden: geschieden
       - verwitwet: verwitwet
     default: ledig
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkei: applicant.permission_to_work
+    datatype: yesnoradio
+    default: true
   - Datum der Hochzeit/ Anmeldung: applicant.date_of_wedding
     datatype: date
     hint: ${ format_date(today(), format='yyyy-MM-dd') }
@@ -190,6 +193,10 @@ fields:
   - Ort in der Ukraine: life_partner.address.city
     default: ${ applicant.address.city }
     show if: life_partner_yes_no
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkei: life_partner.permission_to_work
+    datatype: yesnoradio
+    show if: life_partner_yes_no
+    default: true
 progress: 30
 section: section_life_partner
 ---
@@ -197,58 +204,63 @@ segment:
   id: Question Asked
   arguments:
     count: True
-    question: Number Children
+    question: Number Family Members
 question: |
-  Wie viele Kinder sind mit Ihnen nach Deutschland gekommen?
+  Wie viele Familienmitglieder sind mit Ihnen nach Deutschland gekommen?
+subquestion:
+  Hier zählen nur Personen mit der/dem Antragsteller:in vor der Flucht **innerhalb eines Familienverbands gelebt** und war **vollständig oder größtenteils von ihr/ihm abhängig**.
 fields:
-  - Anzahl: children.target_number
+  - Anzahl: family_member.target_number
     datatype: integer
     max: 4
     hint: 1
     default: 0
 progress: 40
-section: section_children
+section: section_family_members
 ---
 segment:
   id: Question Asked
   arguments:
     count: True
-    question: Children Details
+    question: Family Member Details
 question: |
-  Bitte vervollständigen Sie die Informationen über Ihr ${ i + 1 }. Kind
+  Bitte vervollständigen Sie die Informationen über Ihr ${ i + 1 }. Familienmitglied
 fields:
-  - Vorname: children[i].name.first
+  - Vorname: family_member[i].name.first
     hint: Iryna
     default: Iryna
-  - Nachname: children[i].name.last
+  - Nachname: family_member[i].name.last
     hint: Bondarenko
     default: Bondarenko
-  - Geburtsdatum: children[i].birthdate
+  - Geburtsdatum: family_member[i].birthdate
     datatype: date
     hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
-  - Geburtsort: children[i].place_of_birth
+  - Geburtsort: family_member[i].place_of_birth
     hint: Kyiv
     default: Kyiv
   # TODO: Should be multiple nationalities
-  - Staatsangehörigkeit: children[i].nationality
+  - Staatsangehörigkeit: family_member[i].nationality
     code: |
       countries_list()
     hint: Ukraine
     default: Ukraine
-  - Geschlecht: children[i].gender
+  - Geschlecht: family_member[i].gender
     choices:
       - Männlich: Männlich
       - Weiblich: Weiblich
     default: Weiblich
-  - Addresse in der Ukraine: children[i].address.address
+  - Addresse in der Ukraine: family_member[i].address.address
     default: ${ applicant.address.address }
-  - PLZ in der Ukraine: children[i].address.postal_code
+  - PLZ in der Ukraine: family_member[i].address.postal_code
     default: ${ applicant.address.postal_code }
-  - Ort in der Ukraine: children[i].address.city
+  - Ort in der Ukraine: family_member[i].address.city
     default: ${ applicant.address.city }
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkei: family_member[i].permission_to_work
+    datatype: yesnoradio
+    default: true
 progress: 50
-section: section_children
+section: section_family_member
 ---
 segment:
   id: Question Asked
