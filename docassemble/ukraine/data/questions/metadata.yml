@@ -29,7 +29,14 @@ metadata:
       organization: TripliQ
   languages:
     - en
+    - de
+    - uk
   partners:
+    - legaltechverband:
+      name: Legal Tech Verband Deutschland
+      href: https://www.legaltechverband.de/
+      image: docassemble.ukraine/LTVD_logo.png
+      alt: Legal Tech Verband Deutschland Logo
   images:
     interview: docassemble.ukraine/interview_screenshot.png
     document: docassemble.ukraine/document.jpg
