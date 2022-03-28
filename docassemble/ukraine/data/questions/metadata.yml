@@ -55,7 +55,7 @@ metadata:
         description: 'Dein Antrag kann mit wenigen Klicks durch ein einfaches Interview online erstellt werden. Downloade am Schluss dein Word oder PDF Dokument und fertig ist dein Antrag.'
       - multilingual:
         title: Mehrsprachiges Interview
-        description: 'Momentan bieten wir nur Englisch als Sprache an, arbeiten aber bereits an einer deutschen und ukrainischen Version.'
+        description: 'Wir bieten das Interview in den folgenden drei Sprachen an: Englisch, Ukrainisch und Deutsch.'
     en:
       - safety:
         title: Created by lawyers
@@ -64,5 +64,5 @@ metadata:
         title: Easier than you think
         description: Your application can be created online with a few clicks through a simple interview. Download your Word or PDF document at the end and your application is ready.
       - multilingual:
-        title: Mehrsprachiges Interview
-        description: At the moment we only offer English as a language, but we are already working on a German and Ukrainian version.
+        title: Multilingual interview
+        description: 'We offer the interview in the following three languages: English, Ukrainian and German.'
