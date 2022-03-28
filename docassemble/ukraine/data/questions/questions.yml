@@ -2,6 +2,7 @@ objects:
   - applicant: Individual
   - life_partner: Individual
   - family_member: DAList.using(object_type=Individual, ask_number=True)
+  - children: DAList.using(object_type=Individual, ask_number=True)
   - current_address: Address
 ---
 segment id: Disclaimer Shown
@@ -111,7 +112,7 @@ fields:
       - geschieden: geschieden
       - verwitwet: verwitwet
     default: ledig
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkei: applicant.permission_to_work
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: applicant.permission_to_work
     datatype: yesnoradio
     default: true
   - Datum der Hochzeit/ Anmeldung: applicant.date_of_wedding
@@ -206,7 +207,7 @@ fields:
   - Ort in der Ukraine: life_partner.address.city
     default: ${ applicant.address.city }
     show if: life_partner_yes_no
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkei: life_partner.permission_to_work
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: life_partner.permission_to_work
     datatype: yesnoradio
     show if: life_partner_yes_no
     default: true
@@ -229,7 +230,23 @@ fields:
     hint: 1
     default: 0
 progress: 40
-section: section_family_members
+section: section_family_member
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Number Children
+question: |
+  Wie viele Kinder sind mit Ihnen nach Deutschland gekommen?
+fields:
+  - Anzahl: children.target_number
+    datatype: integer
+    max: 4
+    hint: 1
+    default: 0
+progress: 40
+section: section_children
 ---
 segment:
   id: Question Asked
@@ -258,6 +275,23 @@ fields:
       countries_list()
     hint: Ukraine
     default: Ukraine
+  - Familiäre Verbindung: family_member[i].relationship
+    choices:
+      - Mutter: Mutter
+      - Vater: Vater
+      - Schwiegermutter: Schwiegermutter
+      - Schwiegervater: Schwiegervater
+      - Bruder: Bruder
+      - Schwester: Schwester
+      - Schwägerin: Schwägerin
+      - Schwager: Schwager
+      - Onkel: Onkel
+      - Tante: Tante
+      - Nichte: Nichte
+      - Neffe: Neffe
+      - Cousine: Cousine
+      - Cousin: Cousin
+    default: Mutter
   - Geschlecht: family_member[i].gender
     choices:
       - Männlich: Männlich
@@ -269,11 +303,55 @@ fields:
     default: ${ applicant.address.postal_code }
   - Ort in der Ukraine: family_member[i].address.city
     default: ${ applicant.address.city }
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkei: family_member[i].permission_to_work
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: family_member[i].permission_to_work
     datatype: yesnoradio
     default: true
 progress: 50
 section: section_family_member
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Children Details
+question: |
+  Bitte vervollständigen Sie die Informationen über Ihr ${ i + 1 }. Kind
+fields:
+  - Vorname: children[i].name.first
+    hint: Iryna
+    default: Iryna
+  - Nachname: children[i].name.last
+    hint: Bondarenko
+    default: Bondarenko
+  - Geburtsdatum: children[i].birthdate
+    datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+  - Geburtsort: children[i].place_of_birth
+    hint: Kyiv
+    default: Kyiv
+  # TODO: Should be multiple nationalities
+  - Staatsangehörigkeit: children[i].nationality
+    code: |
+      countries_list()
+    hint: Ukraine
+    default: Ukraine
+  - Geschlecht: children[i].gender
+    choices:
+      - Männlich: Männlich
+      - Weiblich: Weiblich
+    default: Weiblich
+  - Addresse in der Ukraine: children[i].address.address
+    default: ${ applicant.address.address }
+  - PLZ in der Ukraine: children[i].address.postal_code
+    default: ${ applicant.address.postal_code }
+  - Ort in der Ukraine: children[i].address.city
+    default: ${ applicant.address.city }
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: children[i].permission_to_work
+    datatype: yesnoradio
+    default: true
+progress: 50
+section: section_children
 ---
 segment:
   id: Question Asked

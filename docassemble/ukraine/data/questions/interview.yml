@@ -24,7 +24,8 @@ sections:
       - section_personal_info: Persönliche Informationen
       - sektion_id_details: ID / Reisepass Details
   - section_life_partner: Lebenspartner
-  - section_family_members: Familienmitglieder
+  - section_children: Kinder
+  - section_family_member: Familienmitglieder
   - section_arrival: Ankunft
   - section_stay_germany: Aufenthalt in Deutschland
   - section_checklist: Abschließende Checkliste
@@ -39,7 +40,8 @@ sections:
       - section_personal_info: Особиста інформація
       - secction_id_details: ідентифікаційний номер / паспортні дані
   - section_life_partner: Партнер життя
-  - section_family_members: члени сім'ї
+  - section_children: дітей
+  - section_family_member: члени сім'ї
   - section_arrival: Прибуття
   - section_stay_germany: Залишайтеся в Німеччині
   - section_checklist: Остаточний контрольний список
@@ -54,7 +56,8 @@ sections:
       - section_personal_info: Personal Information
       - secction_id_details: ID / Passport Details
   - section_life_partner: Life Partner
-  - section_family_members: Family Members
+  - section_children: Children
+  - section_family_member: Family Members
   - section_arrival: Arrival
   - section_stay_germany: Stay in Germany
   - section_checklist: Final Checklist
