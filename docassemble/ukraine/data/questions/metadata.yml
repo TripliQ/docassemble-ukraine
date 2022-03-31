@@ -19,7 +19,7 @@ metadata:
     en: 'TripliQ | Aufenthaltstitel gem. § 24 AufenthaltsG'
     de: 'TripliQ | Residence title according to § 24 AufenthaltsG'
   description:
-    de: 'Wir haben ein kostenloses Legal-Tech-Tool für ukrainische Flüchtlinge entwickelt, um den Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG mit einem einfachen Online-Formular auszufüllen.'
+    de: 'Wir haben ein kostenloses Legal-Tech-Tool für ukrainische Geflüchtete entwickelt, um den Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG mit einem einfachen Online-Formular auszufüllen.'
     en: 'We created a free legal tech tool for Ukrainian refugees to complete the application for residence title according to § 24 AufenthaltsG with an easy online form.'
   subtitle:
     en: 'TripliQ | Aufenthaltstitel gem. § 24 AufenthaltsG'
@@ -49,7 +49,7 @@ metadata:
     de:
       - safety:
         title: 'Von Anwälten erstellt'
-        description: 'In Zusammenarbeit mit Anwälten haben wir ein einfachen Antrag auf Aufenthaltstitel gem. § 24 AufenthaltsG erarbeitet.'
+        description: 'In Zusammenarbeit mit Anwälten haben wir einen einfachen Antrag auf Aufenthaltstitel gem. § 24 AufenthaltsG erarbeitet.'
       - easy:
         title: Einfacher als du denkst
         description: 'Dein Antrag kann mit wenigen Klicks durch ein einfaches Interview online erstellt werden. Downloade am Schluss dein Word oder PDF Dokument und fertig ist dein Antrag.'
