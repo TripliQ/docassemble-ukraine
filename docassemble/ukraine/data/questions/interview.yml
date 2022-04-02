@@ -22,7 +22,8 @@ sections:
   - section_applicant: Informationen zum Antragsteller
     subsections:
       - section_personal_info: Persönliche Informationen
-      - sektion_id_details: ID / Reisepass Details
+      - section_employment: Antrag Erwerbstätigkeit
+      - section_id_details: ID / Reisepass Details
   - section_life_partner: Lebenspartner
   - section_children: Kinder
   - section_family_member: Familienmitglieder
@@ -38,7 +39,8 @@ sections:
   - section_applicant: Інформація про заявника
     subsections:
       - section_personal_info: Особиста інформація
-      - secction_id_details: ідентифікаційний номер / паспортні дані
+      - section_employment: Заява про дозвіл на роботу
+      - section_id_details: ідентифікаційний номер / паспортні дані
   - section_life_partner: Партнер життя
   - section_children: дітей
   - section_family_member: члени сім'ї
@@ -54,7 +56,8 @@ sections:
   - section_applicant: Applicant Information
     subsections:
       - section_personal_info: Personal Information
-      - secction_id_details: ID / Passport Details
+      - section_employment: Permission to work
+      - section_id_details: ID / Passport Details
   - section_life_partner: Life Partner
   - section_children: Children
   - section_family_member: Family Members

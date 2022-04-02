@@ -42,7 +42,7 @@ choices:
   - German/німецький/Deutsch: de
 default: en
 ---
-ssegment:
+segment:
   id: Question Asked
   arguments:
     count: True
@@ -112,13 +112,6 @@ fields:
       - geschieden: geschieden
       - verwitwet: verwitwet
     default: ledig
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: applicant.permission_to_work
-    datatype: yesnoradio
-    default: true
-  - Datum der Hochzeit/ Anmeldung: applicant.date_of_wedding
-    datatype: date
-    hint: ${ format_date(today(), format='yyyy-MM-dd') }
-    default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Telefon: applicant.phone
     hint: +380 XXX XXX XXX
     default: +380 XXX XXX XXX
@@ -127,6 +120,35 @@ fields:
     default: example@mail.com
 progress: 10
 section: section_personal_info
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Person Additional Details
+question: |
+  Bitte vervollständigen Sie weitere Angaben zu ihrer Hochzeit
+fields:
+  - Datum der Hochzeit/ Anmeldung: applicant.date_of_wedding
+    datatype: date
+    hint: ${ format_date(today(), format='yyyy-MM-dd') }
+    default: ${ format_date(today(), format='yyyy-MM-dd') }
+progress: 10
+section: section_personal_info
+---
+segment:
+  id: Question Asked
+  arguments:
+    count: True
+    question: Request Employment
+question: |
+  Antrag auf Erlaubnis einer Erwerbstätigkeit
+fields:
+  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: applicant.permission_to_work
+    datatype: yesnoradio
+    default: true
+progress: 15
+section: section_employment
 ---
 segment:
   id: Question Asked
@@ -165,7 +187,7 @@ fields:
     hint: Ukraine
     default: Ukraine
 progress: 20
-section: secction_id_details
+section: section_id_details
 ---
 segment:
   id: Question Asked
