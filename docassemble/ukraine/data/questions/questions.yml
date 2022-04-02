@@ -229,7 +229,7 @@ fields:
   - Ort in der Ukraine: life_partner.address.city
     default: ${ applicant.address.city }
     show if: life_partner_yes_no
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: life_partner.permission_to_work
+  - Hiermit beantragt die Person die Erlaubnis einer Erwerbstätigkeit: life_partner.permission_to_work
     datatype: yesnoradio
     show if: life_partner_yes_no
     default: true
@@ -325,7 +325,7 @@ fields:
     default: ${ applicant.address.postal_code }
   - Ort in der Ukraine: family_member[i].address.city
     default: ${ applicant.address.city }
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: family_member[i].permission_to_work
+  - Hiermit beantragt die Person die Erlaubnis einer Erwerbstätigkeit: family_member[i].permission_to_work
     datatype: yesnoradio
     default: true
 progress: 50
@@ -369,7 +369,7 @@ fields:
     default: ${ applicant.address.postal_code }
   - Ort in der Ukraine: children[i].address.city
     default: ${ applicant.address.city }
-  - Hiermit beantrage ich die Erlaubnis einer Erwerbstätigkeit: children[i].permission_to_work
+  - Hiermit beantragt die Person die Erlaubnis einer Erwerbstätigkeit: children[i].permission_to_work
     datatype: yesnoradio
     default: true
 progress: 50
@@ -483,7 +483,12 @@ segment:
 question: |
   Fast fertig, vervollständigen Sie die folgenden Schritte vor dem Absenden
 subquestion: |
-  Bitte sehen Sie sich das folgende Video an und folgen Sie den Anweisungen, um die **richtige Adresse** für Ihren Antrag  zu finden
+  Bitte sehen Sie sich das folgende Video an und folgen Sie den Anweisungen, um die **richtige Adresse** für Ihren Antrag  zu finden.
+  <br>
+  <br>
+  [Link zum Behördenfinder](https://bamf-navi.bamf.de/de/Themen/Behoerden/)
+  <br>
+  <br>
 video: |
   [YOUTUBE 3hO_jSAgwKI]
 fields:
