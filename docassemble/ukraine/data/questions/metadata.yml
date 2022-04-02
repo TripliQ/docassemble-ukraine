@@ -43,7 +43,7 @@ metadata:
   social:
     image: docassemble.ukraine:data/static/undraw_onboarding_re_6osc.svg
     description:
-      de: 'Wir haben ein kostenloses Legal-Tech-Tool für ukrainische Flüchtlinge entwickelt, um den Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG mit einem einfachen Online-Formular auszufüllen.'
+      de: 'Wir haben ein kostenloses Legal-Tech-Tool für ukrainische Geflüchtete entwickelt, um den Antrag auf einen Aufenthaltstitel nach § 24 AufenthaltsG mit einem einfachen Online-Formular auszufüllen.'
       en: 'We created a free legal tech tool for Ukrainian refugees to complete the application for residence title according to § 24 AufenthaltsG with an easy online form.'
   features:
     de:
