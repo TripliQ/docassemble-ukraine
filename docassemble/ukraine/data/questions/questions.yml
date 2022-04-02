@@ -163,7 +163,7 @@ fields:
     choices:
       - eigener Pass/Ausweis: eigener Pass/Ausweis
       - eingetragen bei Vater: eingetragen bei Vater
-      - eingetragen bei Vater: eingetragen bei Vater
+      - eingetragen bei Mutter: eingetragen bei Mutter
     default: eigener Pass/Ausweis
   - Art Ausweisdokument: applicant.id_type
     choices:
