@@ -244,7 +244,7 @@ segment:
 question: |
   Wie viele Familienmitglieder sind mit Ihnen nach Deutschland gekommen?
 subquestion:
-  Hier zählen nur Personen mit der/dem Antragsteller:in vor der Flucht **innerhalb eines Familienverbands gelebt** und war **vollständig oder größtenteils von ihr/ihm abhängig**.
+  Nur Personen, die mit der/dem Antragsteller:in vor der Flucht **innerhalb eines Familienverbands gelebt haben** und **vollständig oder größtenteils von ihr/ihm abhängig waren**.
 fields:
   - Anzahl: family_member.target_number
     datatype: integer
