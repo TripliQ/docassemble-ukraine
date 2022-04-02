@@ -429,15 +429,11 @@ fields:
     hint: ${ format_date(today(), format='yyyy-MM-dd') }
     default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Räumliche Beschränkung: visa_spatial_restriction
-    choices:
-      - ohne räumliche Beschränkung: ohne räumliche Beschränkung
-      - beschränkt auf: beschränkt auf
+    datatype: yesnoradio
     show if: entry_visa_yes_no
     default: ohne räumliche Beschränkung
   - Räumliche Beschränkung auf: visa_spatial_restriction_details
-    show if:
-      variable: visa_spatial_restriction
-      is: beschränkt auf
+    show if: visa_spatial_restriction
   # TODO: Always show? Free text?
   # - Requirement: visa_requirement
   #   show if: entry_visa_yes_no
