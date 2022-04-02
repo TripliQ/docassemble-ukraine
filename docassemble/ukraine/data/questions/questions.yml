@@ -89,7 +89,7 @@ fields:
       - Grau: Grau
       - Braun: Braun
     default: Braun
-  - Größe: applicant.height
+  - Größe in cm: applicant.height
     datatype: integer
     hint: 170
     default: 170
