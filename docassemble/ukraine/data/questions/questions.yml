@@ -38,8 +38,8 @@ subquestion: |
 field: selected_language
 choices:
   - English/англійська/Englisch: en
-  - Ukranian/Українка/Ukrainisch: uk
-  - German/німецький/Deutsch: de
+  - Ukranian/українська/Ukrainisch: uk
+  - German/німецька/Deutsch: de
 # default: en
 ---
 segment:
