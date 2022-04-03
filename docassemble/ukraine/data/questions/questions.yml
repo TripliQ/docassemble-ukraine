@@ -502,7 +502,7 @@ validation code: |
   if not right_address and selected_language == 'en':
     de: validation_error("Please follow the instructions in the video and make a note of the correct address.")
   if not copy_ids and selected_language == 'uk':
-    validation_error("Будь ласка, переконайтеся, що ви взяли з собою копію всіх вищезазначених посвідчень/паспортів, щоб прикріпити їх до заяви.")
+    validation_error("Будь ласка, переконайтеся, що Ви взяли з собою копію всіх вищезазначених посвідчень/паспортів, щоб прикріпити їх до заяви.")
   if not right_address and selected_language == 'uk':
     de: validation_error("Будь ласка, дотримуйтесь інструкцій у відео та запишіть правильну адресу.")
 progress: 70
