@@ -75,7 +75,7 @@ fields:
   - Geburtsland: applicant.country_of_birth
     code: |
       countries_list()
-    hint: Ukraine
+    default: Ukraine
     # default: Ukraine
   - Geschlecht: applicant.gender
     choices:
@@ -96,12 +96,12 @@ fields:
   - Staatsangehörigkeit: applicant.nationality
     code: |
       countries_list()
-    hint: Ukraine
+    default: Ukraine
     # default: Ukraine
   - Vorherige Staatsangehörigkeit (nur zutreffend, wenn Sie zuvor eine andere Staatsangehörigkeit hatten): applicant.previous_nationality
     code: |
       countries_list()
-    hint: Ukraine
+    default: Ukraine
     # default: Ukraine
   - Familienstand: applicant.marital_status
     choices:
@@ -184,7 +184,7 @@ fields:
   - Ausstellender Staat: applicant.issuing_state
     code: |
       countries_list()
-    hint: Ukraine
+    default: Ukraine
     # default: Ukraine
 progress: 20
 section: section_id_details
@@ -294,7 +294,7 @@ fields:
   - Staatsangehörigkeit: family_member[i].nationality
     code: |
       countries_list()
-    hint: Ukraine
+    default: Ukraine
     # default: Ukraine
   - Familiäre Verbindung: family_member[i].relationship
     choices:
@@ -355,7 +355,7 @@ fields:
   - Staatsangehörigkeit: children[i].nationality
     code: |
       countries_list()
-    hint: Ukraine
+    default: Ukraine
     # default: Ukraine
   - Geschlecht: children[i].gender
     choices:
@@ -461,11 +461,11 @@ fields:
   - Zweck des Aufenthalts: residence_purpose
     choices:
       - Flucht vor Krieg: Flucht vor Krieg
-    # default: Flucht vor Krieg
+    default: Flucht vor Krieg
   - Beabsichtigte Dauer des Aufenthalts: residence_duration
     choices:
       - Ende des Kriegs: Ende des Kriegs
-    # default: Ende des Kriegs
+    default: Ende des Kriegs
 progress: 70
 section: section_stay_germany
 ---
