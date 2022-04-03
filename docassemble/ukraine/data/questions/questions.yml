@@ -199,7 +199,6 @@ question: |
 fields:
   - Haben Sie einen Ehegatten/eingetragenen Lebenspartner, der ebenfalls eine Aufenthaltserlaubnis beantragen möchte?: life_partner_yes_no
     datatype: yesnoradio
-    hint: false
     # default: false
   - Vorname: life_partner.name.first
     hint: Iryna
@@ -389,7 +388,6 @@ fields:
     # default: ${ format_date(today(), format='yyyy-MM-dd') }
   - Einreise mit Visum: entry_visa_yes_no
     datatype: yesnoradio
-    hint: false
     # default: false
   - Einreise: entry_visa_type
     choices:
